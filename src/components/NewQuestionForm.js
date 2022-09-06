@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import { Form, Button } from "react-bootstrap";
-// import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 function NewQuestionForm() {
@@ -12,7 +12,7 @@ function NewQuestionForm() {
     question: "",
   });
   const { question } = questionData;
-  // const history = useNavigate();
+  const history = useHistory();
 
   const handleChange = (event) => {
     setQuestionData({
@@ -29,7 +29,8 @@ function NewQuestionForm() {
 
     try {
       const { data } = await axios.post("https://stack-drf-api.herokuapp.com/questions/", formData);
-      // history('')
+      history.push('/questions');
+      window.location.reload();
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
