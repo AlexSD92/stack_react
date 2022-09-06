@@ -1,15 +1,18 @@
 import './App.css';
 import NewQuestionForm from './components/NewQuestionForm';
-import { Route, Switch } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import QuestionList from './components/QuestionList';
+import QuestionDetail from './components/QuestionDetail';
 
 function App() {
   return (
     <div className="App">
-      <Switch>
-        <Route path="/newquestion" render={() => <NewQuestionForm />} />
-        <Route path="/questions" render={() => <QuestionList />} />
-      </Switch>
+      <Routes>
+        <Route path="/newquestion" element={<NewQuestionForm />} />
+        <Route path="/questions" element={<QuestionList />} />
+        <Route path="/questions/:id" element={<QuestionDetail />} />
+        <Route />
+      </Routes>
     </div>
   );
 }
