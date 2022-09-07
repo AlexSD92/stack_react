@@ -39,6 +39,15 @@ function EditQuestionForm() {
     });
   };
 
+  const handleDelete = async() => {
+    try {
+      await axios.delete(`https://stack-drf-api.herokuapp.com/questions/${params.id}`);
+      history('/questions/');
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -82,6 +91,8 @@ function EditQuestionForm() {
         </Form.Group>
         <Button type="submit">Submit</Button>
       </Form>
+
+      <Button onClick={handleDelete}>Delete</Button>
 
     </div>
 
