@@ -3,14 +3,20 @@ import NewQuestionForm from './components/NewQuestionForm';
 import { Routes, Route } from 'react-router-dom';
 import QuestionList from './components/QuestionList';
 import QuestionDetail from './components/QuestionDetail';
+import AnswerList from './components/AnswerList';
+import AnswerDetail from './components/AnswerDetail';
+import NewAnswerForm from './components/NewAnswerForm';
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/newquestion" element={<NewQuestionForm />} />
+        <Route path="/newanswer" element={<NewAnswerForm />} />
         <Route path="/questions" element={<QuestionList />} />
         <Route path="/questions/:id" element={<QuestionDetail />} />
+        <Route path="/answers" element={<AnswerList />} />
+        <Route path="/answers/:id" element={<AnswerDetail />} />
         <Route />
       </Routes>
     </div>
