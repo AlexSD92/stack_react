@@ -6,12 +6,14 @@ import QuestionDetail from './components/QuestionDetail';
 import AnswerList from './components/AnswerList';
 import AnswerDetail from './components/AnswerDetail';
 import NewAnswerForm from './components/NewAnswerForm';
+import EditQuestionForm from './components/EditQuestionForm';
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/newquestion" element={<NewQuestionForm />} />
+        <Route path="/editquestion/:id" element={<EditQuestionForm />} />
         <Route path="/newanswer" element={<NewAnswerForm />} />
         <Route path="/questions" element={<QuestionList />} />
         <Route path="/questions/:id" element={<QuestionDetail />} />
