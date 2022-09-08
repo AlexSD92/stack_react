@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import AnswerList from './AnswerList';
 
 
 function QuestionDetail() {
@@ -24,9 +25,11 @@ function QuestionDetail() {
                 <h6 className='badge rounded-pill bg-info'>{questions.question}</h6>
                 <h6 className='badge rounded-pill bg-secondary'>{questions.created_at}</h6>
                 <h6>{questions.updated_at}</h6>
-                </div>
+                </div>                
+                <AnswerList questions={questions} />
         </div>
         )
 }
+
 
 export default QuestionDetail;
