@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-function AnswerList() {
+function AnswerList(props) {
     const [answers, setAnswers] = useState([])
 
     useEffect(() => {
@@ -15,11 +15,11 @@ function AnswerList() {
 
     return (
         <div>
-            {answers[0] && answers.map(answer => {
+            {answers[0] && answers.filter(answer => answer.question_id === props.questions.id).map(filteredAnswer => {
                 return (
-                    <div key={answer.id}>
-                        <Link to={`/answers/${answer.id}`}>
-                            <h6>{answer.answer}</h6>
+                    <div key={filteredAnswer.id}>
+                        <Link to={`/answers/${filteredAnswer.id}`}>
+                            <h6>{filteredAnswer.answer}</h6>
                         </Link>
                     </div>
                 )
