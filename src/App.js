@@ -8,6 +8,7 @@ import AnswerDetail from './components/AnswerDetail';
 import NewAnswerForm from './components/NewAnswerForm';
 import EditQuestionForm from './components/EditQuestionForm';
 import EditAnswerForm from './components/EditAnswerForm';
+import ProfileList from './components/ProfileList';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
         <Route path="/questions" element={<QuestionList />} />
         <Route path="/questions/:id" element={<QuestionDetail />} />
         <Route path="/answers/:id" element={<AnswerDetail />} />
+        <Route path="/profiles" element={<ProfileList />} />
+        {/* <Route path="/profiles/:id" /> */}
         <Route />
       </Routes>
     </div>
