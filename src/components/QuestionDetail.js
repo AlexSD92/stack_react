@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import AnswerList from './AnswerList';
+import NewAnswerForm from './NewAnswerForm';
 
 
 function QuestionDetail() {
@@ -27,6 +28,7 @@ function QuestionDetail() {
                 <h6>{questions.updated_at}</h6>
                 </div>                
                 <AnswerList questions={questions} />
+                <NewAnswerForm questions={questions} />
         </div>
         )
 }
