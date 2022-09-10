@@ -17,7 +17,7 @@ function App() {
         <Route path="/newanswer" element={<NewAnswerForm />} />
         <Route path="/questions" element={<QuestionList />} />
         <Route path="/questions/:id" element={<QuestionDetail />} />
-        <Route path="/answers" element={<AnswerList />} />
+        {/* <Route path="/answers" element={<AnswerList />} /> */}
         <Route path="/answers/:id" element={<AnswerDetail />} />
         <Route />
       </Routes>
