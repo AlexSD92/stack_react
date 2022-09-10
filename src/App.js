@@ -7,6 +7,7 @@ import AnswerList from './components/AnswerList';
 import AnswerDetail from './components/AnswerDetail';
 import NewAnswerForm from './components/NewAnswerForm';
 import EditQuestionForm from './components/EditQuestionForm';
+import EditAnswerForm from './components/EditAnswerForm';
 
 function App() {
   return (
@@ -15,9 +16,9 @@ function App() {
         <Route path="/newquestion" element={<NewQuestionForm />} />
         <Route path="/editquestion/:id" element={<EditQuestionForm />} />
         <Route path="/newanswer" element={<NewAnswerForm />} />
+        <Route path="/editanswer/:id" element={<EditAnswerForm />} />
         <Route path="/questions" element={<QuestionList />} />
         <Route path="/questions/:id" element={<QuestionDetail />} />
-        {/* <Route path="/answers" element={<AnswerList />} /> */}
         <Route path="/answers/:id" element={<AnswerDetail />} />
         <Route />
       </Routes>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import EditAnswerForm from './EditAnswerForm';
 
 
 function AnswerDetail() {
@@ -24,6 +25,7 @@ function AnswerDetail() {
                 <h6 className='badge rounded-pill bg-secondary'>{answers.created_at}</h6>
                 <h6>{answers.updated_at}</h6>
                 </div>
+                <EditAnswerForm answers={answers} />
         </div>
         )
 }
