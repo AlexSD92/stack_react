@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import { Form, Alert, Button, Col, Row, Container } from 'react-bootstrap';
-import axios from "axios";
 
 import { Link, useNavigate } from "react-router-dom";
 
 import { useSetCurrentUser } from '../contexts/CurrentUserContext';
+import { axiosReq } from "../api/axiosDefaults";
 
 
 function Login() {
@@ -23,7 +23,7 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const {data} = await axios.post("https://stack-drf-api.herokuapp.com/dj-rest-auth/login/", signInData);
+      const {data} = await axiosReq.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
       history('/questions');
     } catch (err) {
