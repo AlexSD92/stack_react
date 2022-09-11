@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.unstyle {
+  text-decoration: none;
+  color: white;
+  margin: 0 10px 0 10px;
+}
+
+.brand {
+  font-size: 1.5rem;
+}
