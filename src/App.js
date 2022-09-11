@@ -10,6 +10,8 @@ import EditQuestionForm from './components/EditQuestionForm';
 import EditAnswerForm from './components/EditAnswerForm';
 import ProfileList from './components/ProfileList';
 import ProfileDetail from './components/ProfileDetail';
+import Register from './components/Register';
+import Test from './components/Test';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
         <Route path="/profiles" element={<ProfileList />} />
         <Route path="/profiles/:id" element={<ProfileDetail />} />
         {/* <Route path="/profiles/:id" /> */}
+        <Route path="/register" element={<Register />} />
+        <Route path="/test" element={<Test />} />
         <Route />
       </Routes>
     </div>
