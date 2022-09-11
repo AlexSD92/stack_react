@@ -3,7 +3,6 @@ import NewQuestionForm from './components/NewQuestionForm';
 import { Routes, Route } from 'react-router-dom';
 import QuestionList from './components/QuestionList';
 import QuestionDetail from './components/QuestionDetail';
-// import AnswerList from './components/AnswerList';
 import AnswerDetail from './components/AnswerDetail';
 import NewAnswerForm from './components/NewAnswerForm';
 import EditQuestionForm from './components/EditQuestionForm';
@@ -14,12 +13,16 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Test from './components/Test';
 import './api/axiosDefaults';
+import NavBar from './components/NavBar';
+import About from './components/About';
 
 
 function App() {
    return (
         <div className="App">
+          <NavBar />
           <Routes>
+            <Route path="/about" element={<About />} />
             <Route path="/newquestion" element={<NewQuestionForm />} />
             <Route path="/editquestion/:id" element={<EditQuestionForm />} />
             <Route path="/newanswer" element={<NewAnswerForm />} />
