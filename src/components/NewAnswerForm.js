@@ -45,11 +45,10 @@ function NewAnswerForm(props) {
   return(
     <div>
 
-      <h1>Answer</h1>
+      <h4>Add an answer to this question:</h4>
       <Form onSubmit={handleSubmit}>
 
         <Form.Group>
-          <Form.Label>Summary</Form.Label>
           <Form.Control 
             type="text"
             name="answer"
@@ -57,7 +56,7 @@ function NewAnswerForm(props) {
             onChange={handleChange}
           />
         </Form.Group>
-
+        <br/>
         <Button type="submit">Submit</Button>
       </Form>
 

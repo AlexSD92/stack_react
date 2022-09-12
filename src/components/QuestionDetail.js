@@ -24,14 +24,16 @@ function QuestionDetail() {
         <div>
                 <Container className='list mt-5'>
                     <div>
-                    <h3 className=''><Link className='unstyle m-0' to={`/questions/${questions.id}`}>{questions.summary}</Link></h3>
+                    <h2 className=''><Link className='unstyle m-0' to={`/questions/${questions.id}`}>{questions.summary}</Link></h2>
                     <p className='m-0'>{questions.question}</p>                      
                     <h5 className='badge rounded-pill bg-success'>{questions.owner}</h5>                  
                     <h5 className='badge rounded-pill bg-secondary'>{questions.created_at}</h5>                      
                     <h5 className='badge rounded-pill bg-secondary'>{questions.updated_at}</h5>                      
                     </div>
-                  <AnswerList questions={questions} />
-                  <NewAnswerForm questions={questions} />
+                    <br/><br/>
+                <NewAnswerForm questions={questions} />
+                <br/><br/>
+                <AnswerList questions={questions} />
                 </Container>           
         </div>
         )

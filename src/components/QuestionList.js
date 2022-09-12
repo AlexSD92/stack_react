@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Badge, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 function QuestionList() {
     const [questions, setQuestions] = useState([])
