@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Badge, Container } from 'react-bootstrap';
 
 function QuestionList() {
     const [questions, setQuestions] = useState([])
@@ -17,11 +18,15 @@ function QuestionList() {
     <div>
         {questions[0] && questions.map(question => {
             return (
-                <div key={question.id}>
-                    <Link to={`/questions/${question.id}`}>
-                        <h6>{question.question}</h6>
-                    </Link>
-                </div>
+                <Container className='list mt-5'>
+                    <div key={question.id}>
+                    <h3 className=''><Link className='unstyle m-0' to={`/questions/${question.id}`}>{question.summary}</Link></h3>
+                    <p className='m-0'>{question.question}</p>                      
+                    <h5 className='badge rounded-pill bg-success'>{question.owner}</h5>                  
+                    <h5 className='badge rounded-pill bg-secondary'>{question.create_at}</h5>                      
+                    <h5 className='badge rounded-pill bg-secondary'>{question.updated_at}</h5>                      
+                    </div>
+                </Container>
             )
         })}
     </div>
