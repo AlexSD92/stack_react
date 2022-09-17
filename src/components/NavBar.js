@@ -15,6 +15,7 @@ function NavBar() {
       await axios.post('dj-rest-auth/logout/');
       // localStorage.setItem('my-app-auth', null)
       setCurrentUser(null);
+      console.log('You have logged out');
     } catch (err) {
       console.log(err);
     }
