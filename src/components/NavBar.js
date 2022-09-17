@@ -12,8 +12,8 @@ function NavBar() {
 
   const handleLogOut = async () => {
     try {
-      // await axios.post('dj-rest-auth/logout/');
-      localStorage.setItem('my-app-auth', null)
+      await axios.post('dj-rest-auth/logout/');
+      // localStorage.setItem('my-app-auth', null)
       setCurrentUser(null);
       history('/questions')
     } catch (err) {
