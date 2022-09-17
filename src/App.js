@@ -15,6 +15,7 @@ import Test from './components/Test';
 import './api/axiosDefaults';
 import NavBar from './components/NavBar';
 import About from './components/About';
+import PageNotFound from './components/PageNotFound';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/test" element={<Test />} />
+            <Route path="*" element={<PageNotFound />} />
             <Route />
           </Routes>
         </div>
