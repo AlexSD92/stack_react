@@ -21,6 +21,22 @@ function NavBar() {
     }
   };
 
+  const logInLinks = (
+    <>
+      <NavLink className='unstylenavlink' to="questions">Questions</NavLink>
+      <NavLink className='unstylenavlink' to="profiles">Profiles</NavLink>
+      <NavLink className='unstylenavlink' to="profiles">My Profile</NavLink>
+      <NavLink className='unstylenavlink' onClick={handleLogOut} to="questions">Log Out</NavLink>
+    </>
+  );
+
+  const logOutLinks = (
+    <>
+      <NavLink className='unstylenavlink' to="login">Log In</NavLink>
+      <NavLink className='unstylenavlink' to="register">Register</NavLink>
+    </>
+  );
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -29,15 +45,11 @@ function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <NavLink className='unstylenavlink' to="about">About</NavLink>
-            <NavLink className='unstylenavlink' to="questions">Questions</NavLink>
-            <NavLink className='unstylenavlink' to="profiles">Profiles</NavLink>
+
+            {currentUser ? logInLinks : logOutLinks}
+
           </Nav>
-          <Nav>
-            <NavLink className='unstylenavlink' to="profiles">My Profile</NavLink>
-            <NavLink className='unstylenavlink' to="login">Log In</NavLink>
-            <NavLink className='unstylenavlink' to="register">Register</NavLink>
-            <NavLink className='unstylenavlink' onClick={handleLogOut} to="questions">Log Out</NavLink>
-          </Nav>
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
