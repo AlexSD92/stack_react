@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
 import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext"
+import '../api/axiosDefaults';
 
 function NavBar() {
   const currentUser = useCurrentUser();
