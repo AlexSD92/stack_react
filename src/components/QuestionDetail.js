@@ -4,7 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import AnswerList from './AnswerList';
 import NewAnswerForm from './NewAnswerForm';
-import { Container } from 'react-bootstrap'
+import { Container, Button } from 'react-bootstrap'
 
 
 function QuestionDetail() {
@@ -28,9 +28,11 @@ function QuestionDetail() {
                     <p className='m-0'>{questions.question}</p>                      
                     <h5 className='badge rounded-pill bg-success'>{questions.owner}</h5>                  
                     <h5 className='badge rounded-pill bg-secondary'>{questions.created_at}</h5>                      
-                    <h5 className='badge rounded-pill bg-secondary'>{questions.updated_at}</h5>                      
+                    <h5 className='badge rounded-pill bg-secondary'>{questions.updated_at}</h5>   
+                    <Link to={`/questions/${questions.id}/editquestion`}>Edit this question.</Link>                   
                     </div>
                     <br/><br/>
+
                 <NewAnswerForm questions={questions} />
                 <br/><br/>
                 <AnswerList questions={questions} />

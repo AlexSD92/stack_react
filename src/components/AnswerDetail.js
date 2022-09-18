@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import EditAnswerForm from './EditAnswerForm';
 
@@ -24,6 +24,7 @@ function AnswerDetail() {
                 <h2><a className='link-style'>{answers.answer}</a></h2>
                 <h6 className='badge rounded-pill bg-secondary'>{answers.created_at}</h6>
                 <h6>{answers.updated_at}</h6>
+                {/* <Link to={`/answers/${answers.id}/editanswer`}>Edit this answer.</Link> */}
                 </div>
                 <EditAnswerForm answers={answers} />
         </div>

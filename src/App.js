@@ -25,18 +25,14 @@ function App() {
           <Routes>
             <Route path="/about" element={<About />} />
             <Route path="/newquestion" element={<NewQuestionForm />} />
-
-
-
-
-            <Route path="/questions/:id/edit" element={<EditQuestionForm />} />
-            <Route path="/newanswer" element={<NewAnswerForm />} />
-            <Route path="/editanswer/:id" element={<EditAnswerForm />} />
             <Route path="/questions" element={<QuestionList />} />
             <Route path="/questions/:id" element={<QuestionDetail />} />
+            <Route path="/questions/:id/editquestion" element={<EditQuestionForm />} />
             <Route path="/answers/:id" element={<AnswerDetail />} />
             <Route path="/profiles" element={<ProfileList />} />
             <Route path="/profiles/:id" element={<ProfileDetail />} />
+
+
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/test" element={<Test />} />
