@@ -26,6 +26,7 @@ function NavBar() {
       <NavLink className='unstylenavlink' to="questions">Questions</NavLink>
       <NavLink className='unstylenavlink' to="profiles">Profiles</NavLink>
       <NavLink className='unstylenavlink' to="profiles">My Profile</NavLink>
+      <NavLink className='unstylenavlink' to="newquestion">New Question</NavLink>
       <NavLink className='unstylenavlink' onClick={handleLogOut} to="questions">Log Out</NavLink>
     </>
   );

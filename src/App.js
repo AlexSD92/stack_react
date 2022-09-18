@@ -25,7 +25,11 @@ function App() {
           <Routes>
             <Route path="/about" element={<About />} />
             <Route path="/newquestion" element={<NewQuestionForm />} />
-            <Route path="/editquestion/:id" element={<EditQuestionForm />} />
+
+
+
+
+            <Route path="/questions/:id/edit" element={<EditQuestionForm />} />
             <Route path="/newanswer" element={<NewAnswerForm />} />
             <Route path="/editanswer/:id" element={<EditAnswerForm />} />
             <Route path="/questions" element={<QuestionList />} />
