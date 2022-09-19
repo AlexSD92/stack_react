@@ -32,7 +32,6 @@ function NewQuestionForm() {
     try {
       const { data } = await axios.post("https://stack-drf-api.herokuapp.com/questions/", formData);
       history('/questions');
-      window.location.reload();
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {

@@ -6,9 +6,8 @@ import { Form, Button } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
 
-function NewAnswerForm(props) {
+function NewAnswerForm() {
   const params = useParams();
-  const question = props.questions.id;
   const [errors, setErrors] = useState({});
   const [answerData, setAnswerData] = useState({
     answer: "",
@@ -28,12 +27,11 @@ function NewAnswerForm(props) {
     const formData = new FormData();
 
     formData.append("answer", answer);
-    formData.append("question", question);
+    formData.append("question", params.id);
 
     try {
       const { data } = await axios.post("https://stack-drf-api.herokuapp.com/answers/", formData);
       history(`/questions/${params.id}`);
-      window.location.reload();
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {

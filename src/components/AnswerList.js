@@ -19,8 +19,8 @@ function AnswerList(props) {
             <h4>Answers:</h4>
             {answers[0] && answers.filter(answer => answer.question_id === props.questions.id).map(filteredAnswer => {
                 return (
-                    <Container className='list mt-2'>
-                        <div key={filteredAnswer.id}>
+                    <Container key={filteredAnswer.id} className='list mt-2'>
+                        <div >
                         <p className=''><Link className='unstyle m-0' to={`/answers/${filteredAnswer.id}`}>{filteredAnswer.answer}</Link></p>
                         <h5 className='badge rounded-pill bg-success'>{filteredAnswer.owner}</h5>                  
                         <h5 className='badge rounded-pill bg-secondary'>{filteredAnswer.created_at}</h5>                      

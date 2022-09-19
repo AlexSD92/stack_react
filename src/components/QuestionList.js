@@ -18,8 +18,8 @@ function QuestionList() {
     <div>
         {questions[0] && questions.map(question => {
             return (
-                <Container className='list mt-5'>
-                    <div key={question.id}>
+                <Container key={question.id} className='list mt-5'>
+                    <div>
                     <h3 className=''><Link className='unstyle m-0' to={`/questions/${question.id}`}>{question.summary}</Link></h3>
                     <p className='m-0'>{question.question}</p>                      
                     <h5 className='badge rounded-pill bg-success'>{question.owner}</h5>                  
