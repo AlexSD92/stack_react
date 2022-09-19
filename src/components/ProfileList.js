@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
 function ProfileList() {
     const [profiles, setProfiles] = useState([])
@@ -17,11 +18,14 @@ function ProfileList() {
         <div>
             {profiles[0] && profiles.map(profile => {
                 return (
-                    <div key={profile.id}>
-                        <Link to={`/profiles/${profile.id}`}>
-                            <h6>{profile.owner}</h6>
-                        </Link>
-                    </div>
+                    <Container key={profile.id} className='list mt-5'>
+                        <div>
+                            <h3><Link to={`/profiles/${profile.id}`}>{profile.owner}</Link></h3>
+                            <h5 className='badge rounded-pill bg-secondary'>{profile.created_at}</h5>                      
+                            <h5 className='badge rounded-pill bg-secondary'>{profile.updated_at}</h5>  
+                        </div>
+
+                    </Container>
                 )
             })}
         </div>

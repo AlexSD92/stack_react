@@ -15,6 +15,8 @@ import About from './components/About';
 import PageNotFound from './components/PageNotFound';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 import NewAnswerForm from './components/NewAnswerForm';
+import MyProfile from './components/MyProfile';
+import EditProfileForm from './components/EditProfileForm'
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
       <Route path="/answers/:id" element={!currentUser ? <Navigate to='/login' /> : <AnswerDetail />} />
       <Route path="/profiles" element={!currentUser ? <Navigate to='/login' /> : <ProfileList />} />
       <Route path="/profiles/:id" element={!currentUser ? <Navigate to='/login' /> : <ProfileDetail />} />
+      <Route path="/profiles/:id/editprofile" element={!currentUser ? <Navigate to='/login' /> : <EditProfileForm />} />
+      <Route path="/myprofile" element={!currentUser ? <Navigate to='/login' /> : <MyProfile />} />
     </>
   )
   

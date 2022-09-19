@@ -2,11 +2,12 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import AnswerList from './AnswerList';
-import NewAnswerForm from './NewAnswerForm';
+import { useCurrentUser } from '../contexts/CurrentUserContext';
+import { Link } from 'react-router-dom';
 
 
 function ProfileDetail() {
+    const currentUser = useCurrentUser()
 
     const params = useParams()
     const [profiles, setProfiles] = useState([])
@@ -22,12 +23,15 @@ function ProfileDetail() {
     return (
         <div>
                 <div className='container m-5'>
-                <h2><a className='link-style'>{profiles.id}</a></h2>
                 <h6 className='badge rounded-pill bg-info'>{profiles.owner}</h6>
                 <h6 className='badge rounded-pill bg-info'>{profiles.name}</h6>
                 <h6 className='badge rounded-pill bg-info'>{profiles.bio}</h6>
                 <h6 className='badge rounded-pill bg-secondary'>{profiles.created_at}</h6>
-                <h6>{profiles.updated_at}</h6>
+                <h6 className='badge rounded-pill bg-secondary'>{profiles.updated_at}</h6>
+                {currentUser.username === profiles.owner ? 
+                      <Link to={`/profiles/${profiles.id}/editprofile`}>Edit your profile.</Link> : 
+                      <h4>You are unable to edit this profile because you are not the owner.</h4>
+                    }
                 </div>                
         </div>
         )
