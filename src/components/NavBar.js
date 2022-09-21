@@ -40,11 +40,11 @@ function NavBar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <NavLink className='unstylenavlink brand' to='about'>Q&A App</NavLink>
+        <NavLink className='unstylenavlink brand' to=''>Q&A App</NavLink>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <NavLink className='unstylenavlink' to="about">About</NavLink>
+            <NavLink className='unstylenavlink' to="">About</NavLink>
 
             {currentUser ? logInLinks : logOutLinks}
 

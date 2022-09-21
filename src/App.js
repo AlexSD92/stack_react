@@ -39,7 +39,7 @@ function App() {
   
   const logOutURLs = (
     <>
-      <Route path="/about" element={<About />} />
+      <Route path="/" element={<About />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route path="*" element={<PageNotFound />} />    
