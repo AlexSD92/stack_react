@@ -48,6 +48,7 @@ function Login() {
             <Form.Group controlId="username">
               <Form.Label>Username</Form.Label>
               <Form.Control
+                required
                 type="text"
                 placeholder="Username"
                 name="username"
@@ -64,6 +65,7 @@ function Login() {
             <Form.Group controlId="password">
               <Form.Label>Password</Form.Label>
               <Form.Control
+                required
                 type="password"
                 placeholder="Password"
                 name="password"

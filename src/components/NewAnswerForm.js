@@ -48,6 +48,7 @@ function NewAnswerForm() {
 
         <Form.Group>
           <Form.Control 
+            required
             type="text"
             name="answer"
             value={answer}

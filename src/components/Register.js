@@ -28,7 +28,7 @@ const Register = () => {
     try {
       console.log(signUpData)
       await axios.post("https://stack-drf-api.herokuapp.com/dj-rest-auth/registration/", signUpData);
-      history("/test");
+      history("/login");
     } catch (err) {
       setErrors(err.response?.data);
       console.log(err);
@@ -45,6 +45,7 @@ const Register = () => {
             <Form.Group controlId="username">
               <Form.Label>Username</Form.Label>
               <Form.Control
+                required
                 type="text"
                 placeholder="Username"
                 name="username"
@@ -61,6 +62,7 @@ const Register = () => {
           <Form.Group controlId="email">
             <Form.Label>Email</Form.Label>
               <Form.Control
+                required
                 type="email"
                 placeholder="Email"
                 name="email"
@@ -77,6 +79,7 @@ const Register = () => {
             <Form.Group controlId="password1">
               <Form.Label>Password</Form.Label>
               <Form.Control
+                required
                 type="password"
                 placeholder="Password"
                 name="password1"
@@ -93,6 +96,7 @@ const Register = () => {
             <Form.Group controlId="password2">
               <Form.Label>Confirm Password</Form.Label>
               <Form.Control
+                required
                 type="password"
                 placeholder="Confirm Password"
                 name="password2"

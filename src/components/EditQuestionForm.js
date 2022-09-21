@@ -73,6 +73,7 @@ function EditQuestionForm() {
         <Form.Group>
           <Form.Label>Summary</Form.Label>
           <Form.Control 
+            required
             type="text"
             name="summary"
             value={summary}
@@ -83,6 +84,7 @@ function EditQuestionForm() {
         <Form.Group>
           <Form.Label>Question</Form.Label>
           <Form.Control 
+            required
             type="text"
             name="question"
             value={question}

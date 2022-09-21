@@ -58,8 +58,7 @@ function EditAnswerForm(props) {
     try {
       await axios.put(`https://stack-drf-api.herokuapp.com/answers/${params.id}`, formData);
       history(`/answers/${params.id}`);
-      window.location.reload();
-      } catch (err) {
+    } catch (err) {
         if (err.response?.status !== 401) {
             setErrors(err.response?.data);
         }
@@ -75,6 +74,7 @@ function EditAnswerForm(props) {
         <Form.Group>
           <Form.Label>Answer</Form.Label>
           <Form.Control 
+            required
             type="text"
             name="answer"
             value={answer}

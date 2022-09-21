@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import axios from "axios";
 
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 
@@ -48,22 +48,35 @@ function NewQuestionForm() {
         <Form.Group>
           <Form.Label>Summary</Form.Label>
           <Form.Control 
+            required
             type="text"
             name="summary"
             value={summary}
             onChange={handleChange}
           />
         </Form.Group>
+        {errors.summary?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
         <Form.Group>
           <Form.Label>Question</Form.Label>
           <Form.Control 
+            required
             type="text"
             name="question"
             value={question}
             onChange={handleChange}
           />
         </Form.Group>
+        {errors.question?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
+
         <Button type="submit">Submit</Button>
       </Form>
 
