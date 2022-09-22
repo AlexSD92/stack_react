@@ -3,8 +3,8 @@ import { Form, Alert, Button, Col, Row, Container } from 'react-bootstrap';
 
 import { Link, useNavigate } from "react-router-dom";
 
-import { useSetCurrentUser } from '../contexts/CurrentUserContext';
-import { axiosReq } from "../api/axiosDefaults";
+import { useSetCurrentUser } from '../../contexts/CurrentUserContext';
+import { axiosReq } from "../../api/axiosDefaults";
 
 
 function Login() {
