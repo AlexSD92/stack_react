@@ -2,9 +2,10 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import AnswerList from './AnswerList';
+import AnswerList from '../AnswerList';
 import { Container, Button } from 'react-bootstrap'
-import { useCurrentUser } from '../contexts/CurrentUserContext';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import EditQuestionForm from './EditQuestionForm';
 
 
 function QuestionDetail() {
@@ -30,16 +31,16 @@ function QuestionDetail() {
                     <h5 className='badge rounded-pill bg-success'>{questions.owner}</h5>                  
                     <h5 className='badge rounded-pill bg-secondary'>{questions.created_at}</h5>                      
                     <h5 className='badge rounded-pill bg-secondary'>{questions.updated_at}</h5>   
-                    {currentUser.username === questions.owner ? 
-                      <Link to={`/questions/${questions.id}/editquestion`}>Edit this question.</Link> : 
-                      <h4>You are unable to edit this question because you are not the owner.</h4>
+                    {currentUser && currentUser.username === questions.owner ?  
+                      <EditQuestionForm /> : 
+                      <h4>You are unable to edit this question because you are not the owner or you are not currently signed in.</h4>
                     }
                     <Link to={`/questions/${questions.id}/newanswer`}>Add an answer to this question.</Link>
                     </div>
                     <br/><br/>
 
                 <br/><br/>
-                <AnswerList questions={questions} />
+                
                 </Container>           
         </div>
         )
@@ -47,3 +48,6 @@ function QuestionDetail() {
 
 
 export default QuestionDetail;
+
+
+{/* <Link to={`/questions/${questions.id}/editquestion`}>Edit this question.</Link> */}
