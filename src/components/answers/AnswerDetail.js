@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import EditAnswerForm from './EditAnswerForm';
-import { useCurrentUser } from '../contexts/CurrentUserContext';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
 
 function AnswerDetail() {
@@ -29,7 +29,10 @@ function AnswerDetail() {
                 <h6>{answers.updated_at}</h6>
                 </div>
 
-                {currentUser.username === answers.owner ? <EditAnswerForm answers={answers} /> : <h4>You are unable to edit this answer because you are not the owner.</h4>}
+                {/* {currentUser && currentUser.username === answers.owner ? 
+                  <EditAnswerForm answers={answers} /> : 
+                  <h4>You are unable to edit this answer because you are not the owner or you are not currently logged in.</h4>
+                } */}
                 
         </div>
         )

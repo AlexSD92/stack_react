@@ -4,9 +4,9 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import EditQuestionForm from './EditQuestionForm'
 import QuestionDetail from './QuestionDetail'
 import axios from 'axios';
-import NewAnswerForm from '../NewAnswerForm';
+import NewAnswerForm from '../answers/NewAnswerForm';
 import WarningMessage from '../messages/WarningMessage';
-import AnswerList from '../AnswerList';
+import AnswerList from '../answers/AnswerList';
 
 function QuestionEditOrDetail() {
     const currentUser = useCurrentUser();

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import AnswerList from '../AnswerList';
+import AnswerList from '../answers/AnswerList';
 import { Container, Button } from 'react-bootstrap'
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import EditQuestionForm from './EditQuestionForm';
