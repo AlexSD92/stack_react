@@ -30,7 +30,6 @@ function QuestionDetail() {
                     <h5 className='badge rounded-pill bg-success'>{questions.owner}</h5>                  
                     <h5 className='badge rounded-pill bg-secondary'>{questions.created_at}</h5>                      
                     <h5 className='badge rounded-pill bg-secondary'>{questions.updated_at}</h5>   
-                    {/* <Link to={`/questions/${questions.id}/editquestion`}>Edit this question.</Link> */}
                     {currentUser.username === questions.owner ? 
                       <Link to={`/questions/${questions.id}/editquestion`}>Edit this question.</Link> : 
                       <h4>You are unable to edit this question because you are not the owner.</h4>
