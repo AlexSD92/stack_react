@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import NewQuestionForm from './NewQuestionForm';
 
 function QuestionList() {
+    const currentUser = useCurrentUser();
     const [questions, setQuestions] = useState([])
 
     useEffect(() => {
@@ -16,6 +19,8 @@ function QuestionList() {
 
   return (
     <div>
+        {currentUser ? <NewQuestionForm /> : null}
+
         {questions[0] && questions.map(question => {
             return (
                 <Container key={question.id} className='list mt-5'>
