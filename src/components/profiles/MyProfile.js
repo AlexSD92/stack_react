@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
-import { useCurrentUser } from '../contexts/CurrentUserContext';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
 function ProfileList() {
     const currentUser = useCurrentUser();
@@ -25,10 +25,6 @@ function ProfileList() {
                             <h3><Link to={`/profiles/${filteredProfile.id}`}>{filteredProfile.owner}</Link></h3>
                             <h5 className='badge rounded-pill bg-secondary'>{filteredProfile.created_at}</h5>                      
                             <h5 className='badge rounded-pill bg-secondary'>{filteredProfile.updated_at}</h5>
-                            {currentUser.username === filteredProfile.owner ? 
-                            <Link to={`/profiles/${filteredProfile.id}/editprofile`}>Edit your profile.</Link> : 
-                            <h4>You are unable to edit this profile because you are not the owner.</h4>
-                    }
                         </div>
 
                     </Container>

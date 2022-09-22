@@ -6,7 +6,7 @@ import { Form, Button } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
 
-function EditQuestionForm() {
+function EditProfileForm() {
   const [errors, setErrors] = useState({});
   const [profileData, setProfileData] = useState({
     name: "",
@@ -90,4 +90,4 @@ function EditQuestionForm() {
 
 }
 
-export default EditQuestionForm;
+export default EditProfileForm;
