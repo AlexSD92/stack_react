@@ -18,10 +18,6 @@
     3. [Strategy](#strategy)
     4. [Scope](#scope)
     5. [Skeleton](#skeleton)
-    6. [Surface](#surface)
-        1. [Colors](#Colors)
-        2. [Typography](#Typography)
-        3. [Images & Icons](#images-&-icons)
 3. [Features](#features)
     1. [Current Features](#current-features)
     2. [Future Features](#future-features)
@@ -30,9 +26,6 @@
     2. [Frameworks](#frameworks)
     3. [Other Technologies and Libraries] (#other-technologies-and-libraries)
 5. [Testing and Development](#testing-and-development)
-    1. [Sprints](#sprints)
-    2. [Manual Testing](#manual-testing)
-    3. [Automated Testing](#automated-testing)
 6. [Deployment](#deployment)
     1. [Cloning and Forking the GitHub Repository](#cloning-and-forking-the-github-repository)
     2. [Local Deployment](#local-deployment)
@@ -79,8 +72,6 @@ This app is aimed at a general audience.
 - As a user, I can update my details so that I may keep my information up to date. 
 - As a user, I can view other user profiles so I may learn more about them.
 - As a user, I am unable to edit other user profiles.
-- As a user, I can update my username and password so that I may keep my account secure.
-- As a user, I can view my statistics so that I may understand my use of the platform.
 
 ### Strategy
 
@@ -89,19 +80,35 @@ Create a simple question and answer app where users are able to login/out and po
 ### Scope
 
 - Log in and out. 
-- Create, update and delete questions. 
+- Create, update and delete questions.
 - Create, update and delete answers.
 - Manage user profile.
+- Update and delete restricted to owner.
 
 ### Skeleton
-### Surface
-##### Colors
-##### Typography
-##### Images & Icons
+
+Wireframes for the structure of the Question List, Question Detail and Answer Detail components can be found in the [assets directory](assets).
 
 # Features
+
 ### Current Features
+- Log in/out 
+- Register for an account
+- Post a new question
+- Post an answer to a question
+- Edit an existing question if you are the author
+- Edit an existing answer if you are the author
+- Edit your profile
+- Question and answer list view
+- Question and answer detail view
+
 ### Future Features
+- Statistics on platform usage
+    - For example, how many questions a user has asked versus answered
+- Additional authentication options, such as logging in with social media
+- A direct messaging system to contact other users directly 
+- Additional profile features such as images 
+- Ability to upvote and downvote questions and answers in order to provide better visibility on the best questions and answers
 
 # Technologies
 ### Languages
@@ -135,9 +142,6 @@ Create a simple question and answer app where users are able to login/out and po
 - [Heroku Postgres](https://www.heroku.com/postgres)
 
 # Testing and Development
-### Sprints
-### Manual Testing
-### Automated Testing
 
 # Deployment
 ### Cloning and Forking the GitHub Repository
