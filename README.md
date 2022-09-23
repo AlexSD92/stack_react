@@ -17,6 +17,7 @@
     2. [User Stories](#user-stories)
     3. [Strategy](#strategy)
     4. [Scope](#scope)
+        - [Components](#components)
     5. [Skeleton](#skeleton)
 3. [Features](#features)
     1. [Current Features](#current-features)
@@ -75,7 +76,33 @@ This app is aimed at a general audience.
 
 ### Strategy
 
-Create a simple question and answer app where users are able to login/out and post questions and answers. 
+- Create a simple question and answer app where users are able to login/out and post questions and answers. 
+- Split the frontend and backend to reduce development issue risks, such as breaking the entire website with single lines of code.
+- Split the frontend and backend to facilitate relatively easier debugging. 
+- Split the frontend and backend to take advantage of the modularity that both React.js and DJRest have to offer.
+- Split the frontend and backend to be able to drastically edit the UX and UI without needing to change or impoact the stability of the business logic or backend.
+- Develop the front end using React.js because of it's flexibility and scalability. 
+- Develop the backend using DJRest because of it's flexibility and scalability. 
+
+##### Components
+
+- The application is largely divided up in to 3 major sections. 
+    1. Questions
+    2. Answers
+    3. Profiles
+
+- In any regard, authentication and authorisation play a large role in how the application works.
+    1. The questions section contains 2 central components by which the other components interact with. 
+        - QuestionList.js lists all questions in the database in order of newest to oldest.
+            - Within QuestionList.js, users may find the NewQuestionForm.js component if they are logged in.
+        - QuestionEditOrDetail.js is the detail view for the questions section. 
+            - If a user is logged in and they select their own question, the default component will be EditQuestionForm.js, otherwise it will be QuestionDetail.js. 
+            - Furthermore, if the user is logged in and they select a question, they will be able to add answers to the question they have selected; if they are not logged in, they will be unable to add any answers. 
+    2. The answers and profiles sections follow the same logic as the questions section in terms of what a user is allowed to edit and when they are allowed to edit. 
+        - In general, if a user is logged in and they are select their own question, answer or profile, the component that will be returned is the Question/Answer/Profile/EditOrDetail.js component. 
+        - If they are not logged in, the component that will be returned is the Question/Answer/Profile/Detail.js component.
+        - In order to post new Questions or Answers, users must be logged in.
+    3. The only component that is applied to the entire project is the NavBar.js component.
 
 ### Scope
 
@@ -87,7 +114,7 @@ Create a simple question and answer app where users are able to login/out and po
 
 ### Skeleton
 
-Wireframes for the structure of the Question List, Question Detail and Answer Detail components can be found in the [assets directory](assets).
+Wireframes for the project can be found within the assets directory of this repository.
 
 # Features
 
@@ -125,14 +152,6 @@ Wireframes for the structure of the Question List, Question Detail and Answer De
 - [Django](https://www.djangoproject.com/)
 - [Django REST](https://www.django-rest-framework.org/)
 - [React](https://reactjs.org/)
-- [Gunicorn](https://gunicorn.org/)
-- [React Router](https://v5.reactrouter.com/)
-- [Bootstrap React](https://react-bootstrap.github.io/)
-- [dj-rest-auth](https://dj-rest-auth.readthedocs.io/)
-- [JWT](https://jwt.io/)
-- [Axios](https://axios-http.com/)
-- [Django Allauth](https://django-allauth.readthedocs.io/)
-- [Django CORS Headers](https://pypi.org/project/django-cors-headers/)
 
 ### Other Technologies and Libraries
 
@@ -140,8 +159,50 @@ Wireframes for the structure of the Question List, Question Detail and Answer De
 - [Whitenoise](http://whitenoise.evans.io/en/stable/)
 - [Heroku](https://id.heroku.com/)
 - [Heroku Postgres](https://www.heroku.com/postgres)
+- [Gunicorn](https://gunicorn.org/)
+- [React Router](https://v5.reactrouter.com/)
+    - Often recommended by users of stack-exchange.
+    - Documentation that is easy to understand.
+- [Bootstrap React](https://react-bootstrap.github.io/)
+    - One of the oldest React libraries available. 
+    - Familiarity with Bootstrap made this an easy and accessible choice.
+- [dj-rest-auth](https://dj-rest-auth.readthedocs.io/)
+- [JWT](https://jwt.io/)
+- [Axios](https://axios-http.com/)
+- [Django Allauth](https://django-allauth.readthedocs.io/)
+- [Django CORS Headers](https://pypi.org/project/django-cors-headers/)
 
 # Testing and Development
+
+### Frontend
+
+Test | Desired Functionality | Working As Intended (Y / N)
+--- | --- | :---:
+Log In | Incorrect input results in an error message. Correct input logs the user in | Yes
+Register | Accounts cannot be created with existing usernames. Successful registration results in message telling user to contact administrator | Yes
+Log Out | When a user clicks log out, they are redirected to the log out page and must log in again | Yes
+URLs | All URLs work as intended and redirect users to correct pages | Yes
+CRUD | Create, update and delete functionality in place across accounts, contacts and opportunities | Yes
+Profile | Profile is accessible and users can update their name and bio | Yes
+Responsiveness | All components collapse into mobile view | Yes
+Authentication | Users must be logged in to post new questions and answers | Yes
+Authorisation | Users must be logged in to edit and delete their own questions and answers | Yes
+Authorisation | Users are unable to edit or delete other user questions and answers | Yes
+
+### Backend
+
+Test | Desired Functionality | Working As Intended (Y / N)
+--- | --- | :---:
+Log In | Incorrect input results in an error message. Correct input logs the user in | Yes
+Register | Accounts cannot be created with existing usernames. Successful registration results in message telling user to contact administrator | Yes
+Log Out | When a user clicks log out, they are redirected to the log out page and must log in again | Yes
+URLs | All URLs work as intended and redirect users to correct pages | Yes
+CRUD | Create, update and delete functionality in place across accounts, contacts and opportunities | Yes
+Profile | Profile is accessible and users can update their name and bio | Yes
+Responsiveness | All components collapse into mobile view | Yes
+Authentication | Users must be logged in to post new questions and answers | Yes
+Authorisation | Users must be logged in to edit and delete their own questions and answers | Yes
+Authorisation | Users are unable to edit or delete other user questions and answers | Yes
 
 # Deployment
 ### Cloning and Forking the GitHub Repository
@@ -184,8 +245,9 @@ In order to clone the repository, you must:
 5. Install the following using 'npm install':
     - react-bootstrap
     - react-router-dom
+    - axios
 6. In the command terminal, start the app by typing 'npm start'. 
-7. Your project should not be hosted locally. 
+7. Your project should be deployed locally. 
 
 ##### Back End
 
@@ -194,7 +256,7 @@ In order to clone the repository, you must:
 2. Give your folder a project name, for example 'stack-drf-api'.
 3. Open up your terminal.
 4. First and foremost, install Django by typing '*pip install Django*', and wait for the installation to finish.
-5. Time to start the project, so type '*django-admin startproject [insert your project name here]*' and wait for the folders and files to be created. Our project is named *crm*.
+5. Time to start the project, so type '*django-admin startproject [insert your project name here]*' and wait for the folders and files to be created.
 6. Install the following dependencies using 'pip install':
     - django-rest-framework
     - django-cors-headers
@@ -203,6 +265,7 @@ In order to clone the repository, you must:
     - psycopg2
     - gunicorn
     - dj-database-url
+    - whitenoise
 7. In your terminal, type '*python manage.py runserver*'
 8. Your project should be hosted locally.
 9. You should view the following message 'The install worked successfully! Congratulations!'.
@@ -219,10 +282,12 @@ In order to clone the repository, you must:
 5. Install the following using 'npm install':
     - react-bootstrap
     - react-router-dom
+    - axios
 6. Create a Heroku account if you don't have one already. 
 7. Click on Create new app. 
 8. Give your app a name, choose your region and click create.
 9. Click on Deploy and click on 'Deploy Branch' at the bottom of the page after connecting to your GitHub account.
+10. Because the app was created using npm, it should already have all the dependencies it requires for a successful Heroku deployment.
 
 ##### Back End
 
@@ -231,7 +296,7 @@ In order to clone the repository, you must:
 2. Give your folder a project name, for example 'stack-drf-api'.
 3. Open up your terminal.
 4. First and foremost, install Django by typing '*pip install Django*', and wait for the installation to finish.
-5. Time to start the project, so type '*django-admin startproject [insert your project name here]*' and wait for the folders and files to be created. Our project is named *crm*.
+5. Time to start the project, so type '*django-admin startproject [insert your project name here]*' and wait for the folders and files to be created.
 6. Install the following dependencies using 'pip install':
     - django-rest-framework
     - django-cors-headers
@@ -284,7 +349,7 @@ In order to clone the repository, you must:
     - Finally, for development, you will need to disable the collection of static files. The file key value pair you need to add is 'DISABLE_COLLECTSTATIC=1'.
 20. Click on 'Add Buildpack' and select python, then 'Save changes'.
 25. At the top of your settings.py file, '*import os*' and '*import dj_database_url*'.
-26. Ensure DEBUG is set to True for development purposes or True for production.
+26. Ensure DEBUG is set to True for development purposes or False for production.
 27. Set your 'ALLOWED_HOST' to ['[*your heroku project name*].herokuapp.com']. For example, 'ALLOWED_HOSTS = ['stack-drf-api.herokuapp.com']
 28. Comment out the existing database and include a new DATABASE setting. 
     - Go back to your Heroku config vars and grab the DATABASE_URL key value. 
