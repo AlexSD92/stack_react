@@ -40,7 +40,6 @@ function EditProfileForm() {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
     const formData = new FormData();
 
     formData.append("name", name);
@@ -48,7 +47,6 @@ function EditProfileForm() {
 
     try {
       await axios.put(`https://stack-drf-api.herokuapp.com/profiles/${params.id}`, formData);
-      history(`/profiles/${params.id}`);
       } catch (err) {
         if (err.response?.status !== 401) {
             setErrors(err.response?.data);

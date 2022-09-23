@@ -23,7 +23,6 @@ function NewQuestionForm() {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
     const formData = new FormData();
 
     formData.append("summary", summary);

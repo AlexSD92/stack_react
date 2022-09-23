@@ -48,8 +48,11 @@ function EditAnswerForm(props) {
     }
   };
 
+  function refresh() {
+    window.location.reload(true);
+  }
+
   const handleSubmit = async (event) => {
-    event.preventDefault();
     const formData = new FormData();
 
     formData.append("question", question);
@@ -57,8 +60,6 @@ function EditAnswerForm(props) {
 
     try {
       await axios.put(`https://stack-drf-api.herokuapp.com/answers/${params.id}`, formData);
-      history(`/answers/${params.id}`);
-      window.location.reload();
     } catch (err) {
         if (err.response?.status !== 401) {
             setErrors(err.response?.data);

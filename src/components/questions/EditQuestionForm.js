@@ -49,7 +49,6 @@ function EditQuestionForm() {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
     const formData = new FormData();
 
     formData.append("summary", summary);
@@ -57,7 +56,6 @@ function EditQuestionForm() {
 
     try {
       await axios.put(`https://stack-drf-api.herokuapp.com/questions/${params.id}`, formData);
-      history(`/questions/${params.id}`);
       } catch (err) {
         if (err.response?.status !== 401) {
             setErrors(err.response?.data);
