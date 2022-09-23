@@ -1,22 +1,20 @@
 import './App.css';
-import NewQuestionForm from './components/NewQuestionForm';
+import NewQuestionForm from './components/questions/NewQuestionForm';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import QuestionList from './components/QuestionList';
-import QuestionDetail from './components/QuestionDetail';
-import AnswerDetail from './components/AnswerDetail';
-import EditQuestionForm from './components/EditQuestionForm';
-import ProfileList from './components/ProfileList';
-import ProfileDetail from './components/ProfileDetail';
-import Register from './components/Register';
-import Login from './components/Login';
+import QuestionList from './components/questions/QuestionList';
+import ProfileList from './components/profiles/ProfileList';
+import Register from './components/authentication/Register';
+import Login from './components/authentication/Login';
 import './api/axiosDefaults';
 import NavBar from './components/NavBar';
 import About from './components/About';
-import PageNotFound from './components/PageNotFound';
+import PageNotFound from './components/messages/PageNotFound';
 import { useCurrentUser } from './contexts/CurrentUserContext';
-import NewAnswerForm from './components/NewAnswerForm';
-import MyProfile from './components/MyProfile';
-import EditProfileForm from './components/EditProfileForm'
+import NewAnswerForm from './components/answers/NewAnswerForm';
+import MyProfile from './components/profiles/MyProfile';
+import QuestionEditOrDetail from './components/questions/QuestionEditOrDetail';
+import AnswerEditOrDetail from './components/answers/AnswerEditOrDetail';
+import ProfileEditOrDetail from './components/profiles/ProfileEditOrDetail';
 
 
 function App() {
@@ -24,24 +22,20 @@ function App() {
 
   const logInURLs = (
     <>
-      <Route path="/newquestion" element={!currentUser ? <Navigate to='/login' /> : <NewQuestionForm />} />
-      <Route path="/questions" element={!currentUser ? <Navigate to='/login' /> : <QuestionList />} />
-      <Route path="/questions/:id" element={!currentUser ? <Navigate to='/login' /> : <QuestionDetail />} />
-      <Route path="/questions/:id/editquestion" element={!currentUser ? <Navigate to='/login' /> : <EditQuestionForm />} />
-      <Route path="/questions/:id/newanswer" element={!currentUser ? <Navigate to='/login' /> : <NewAnswerForm />} />
-      <Route path="/answers/:id" element={!currentUser ? <Navigate to='/login' /> : <AnswerDetail />} />
-      <Route path="/profiles" element={!currentUser ? <Navigate to='/login' /> : <ProfileList />} />
-      <Route path="/profiles/:id" element={!currentUser ? <Navigate to='/login' /> : <ProfileDetail />} />
-      <Route path="/profiles/:id/editprofile" element={!currentUser ? <Navigate to='/login' /> : <EditProfileForm />} />
-      <Route path="/myprofile" element={!currentUser ? <Navigate to='/login' /> : <MyProfile />} />
+      <Route path="/questions" element={<QuestionList />} />
+      <Route path="/questions/:id" element={<QuestionEditOrDetail />} />
+      <Route path="/answers/:id" element={<AnswerEditOrDetail />} />
+      <Route path="/profiles" element={<ProfileList />} />
+      <Route path="/profiles/:id" element={<ProfileEditOrDetail />} />
+      <Route path="/myprofile" element={<MyProfile />} />
     </>
   )
   
   const logOutURLs = (
     <>
       <Route path="/" element={<About />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={currentUser ? <Navigate to='/' /> : <Register />} />
+      <Route path="/login" element={currentUser ? <Navigate to='/' /> : <Login />} />
       <Route path="*" element={<PageNotFound />} />    
     </>
   )
