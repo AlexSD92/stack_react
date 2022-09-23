@@ -2,19 +2,21 @@ import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext"
 import '../api/axiosDefaults';
 
 function NavBar() {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser(); 
+  const history = useNavigate();
 
   const handleLogOut = async () => {
     try {
       await axios.post('dj-rest-auth/logout/');
       setCurrentUser(null);
       console.log('You have logged out');
+      history('login')
     } catch (err) {
       console.log(err);
     }
