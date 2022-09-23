@@ -2,12 +2,9 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import { Link } from 'react-router-dom';
 
 
 function ProfileDetail() {
-    const currentUser = useCurrentUser()
 
     const params = useParams()
     const [profiles, setProfiles] = useState([])
@@ -16,7 +13,7 @@ function ProfileDetail() {
       axios.get(`https://stack-drf-api.herokuapp.com/profiles/${params.id}`).then((response) => {
         setProfiles(response.data);
       });
-    }, []);
+    }, [params]);
 
     if (!profiles) return null;
 

@@ -2,8 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import AnswerList from '../answers/AnswerList';
-import { Container, Button } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import EditQuestionForm from './EditQuestionForm';
 
@@ -18,7 +17,7 @@ function QuestionDetail() {
       axios.get(`https://stack-drf-api.herokuapp.com/questions/${params.id}`).then((response) => {
         setQuestions(response.data);
       });
-    }, []);
+    }, [params]);
 
     if (!questions) return null;
 
@@ -48,6 +47,3 @@ function QuestionDetail() {
 
 
 export default QuestionDetail;
-
-
-{/* <Link to={`/questions/${questions.id}/editquestion`}>Edit this question.</Link> */}

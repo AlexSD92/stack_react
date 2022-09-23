@@ -15,7 +15,7 @@ function ProfileEditOrDetail() {
       axios.get(`https://stack-drf-api.herokuapp.com/profiles/${params.id}`).then((response) => {
         setProfiles(response.data);
       });
-    }, []);
+    }, [params]);
 
     if (!profiles) return null;
 

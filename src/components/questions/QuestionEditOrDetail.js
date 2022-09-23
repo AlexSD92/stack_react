@@ -18,7 +18,7 @@ function QuestionEditOrDetail() {
       axios.get(`https://stack-drf-api.herokuapp.com/questions/${params.id}`).then((response) => {
         setQuestions(response.data);
       });
-    }, []);
+    }, [params]);
 
     if (!questions) return null;
 

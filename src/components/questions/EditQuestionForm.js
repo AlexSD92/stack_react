@@ -80,6 +80,7 @@ function EditQuestionForm() {
             onChange={handleChange}
           />
         </Form.Group>
+        {console.log(errors)}
 
         <Form.Group>
           <Form.Label>Question</Form.Label>
@@ -91,6 +92,8 @@ function EditQuestionForm() {
             onChange={handleChange}
           />
         </Form.Group>
+        {console.log(errors)}
+
         <Button type="submit">Submit</Button>
       </Form>
 

@@ -69,6 +69,7 @@ function EditProfileForm() {
             onChange={handleChange}
           />
         </Form.Group>
+        {console.log(errors)}
 
         <Form.Group>
           <Form.Label>Bio</Form.Label>
@@ -79,6 +80,8 @@ function EditProfileForm() {
             onChange={handleChange}
           />
         </Form.Group>
+        {console.log(errors)}
+        
         <Button type="submit">Submit</Button>
       </Form>
 

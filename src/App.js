@@ -1,5 +1,4 @@
 import './App.css';
-import NewQuestionForm from './components/questions/NewQuestionForm';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import QuestionList from './components/questions/QuestionList';
 import ProfileList from './components/profiles/ProfileList';
@@ -10,7 +9,6 @@ import NavBar from './components/NavBar';
 import About from './components/About';
 import PageNotFound from './components/messages/PageNotFound';
 import { useCurrentUser } from './contexts/CurrentUserContext';
-import NewAnswerForm from './components/answers/NewAnswerForm';
 import MyProfile from './components/profiles/MyProfile';
 import QuestionEditOrDetail from './components/questions/QuestionEditOrDetail';
 import AnswerEditOrDetail from './components/answers/AnswerEditOrDetail';
