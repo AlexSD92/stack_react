@@ -41,7 +41,8 @@ function EditQuestionForm() {
 
   const handleDelete = async() => {
     try {
-      await axios.delete(`https://stack-drf-api.herokuapp.com/questions/${params.id}`);
+      await axios.delete(`https://stack-drf-api.herokuapp.com/questions/${params.id}`)
+      .then(alert('You have successfully deleted your question!'));
       history('/questions/');
     } catch (err) {
       console.log(err);
@@ -55,7 +56,8 @@ function EditQuestionForm() {
     formData.append("question", question);
 
     try {
-      await axios.put(`https://stack-drf-api.herokuapp.com/questions/${params.id}`, formData);
+      await axios.put(`https://stack-drf-api.herokuapp.com/questions/${params.id}`, formData)
+      .then(alert('You have successfully updated your question!'));
       } catch (err) {
         if (err.response?.status !== 401) {
             setErrors(err.response?.data);

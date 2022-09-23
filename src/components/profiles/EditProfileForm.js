@@ -46,7 +46,8 @@ function EditProfileForm() {
     formData.append("bio", bio);
 
     try {
-      await axios.put(`https://stack-drf-api.herokuapp.com/profiles/${params.id}`, formData);
+      await axios.put(`https://stack-drf-api.herokuapp.com/profiles/${params.id}`, formData)
+      .then(alert('Your profile has been updated!'));
       } catch (err) {
         if (err.response?.status !== 401) {
             setErrors(err.response?.data);

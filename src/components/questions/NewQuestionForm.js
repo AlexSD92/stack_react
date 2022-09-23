@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import axios from "axios";
 
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Button, Alert, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 
@@ -23,14 +23,15 @@ function NewQuestionForm() {
   };
 
   const handleSubmit = async (event) => {
+    // event.preventDefault()
     const formData = new FormData();
 
     formData.append("summary", summary);
     formData.append("question", question);
 
     try {
-      const { data } = await axios.post("https://stack-drf-api.herokuapp.com/questions/", formData);
-      history('/questions');
+      const { data } = await axios.post("https://stack-drf-api.herokuapp.com/questions/", formData)
+      .then(alert('You have successfully submitted your question!'));
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {

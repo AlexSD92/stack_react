@@ -29,7 +29,8 @@ function NewAnswerForm() {
     formData.append("question", params.id);
 
     try {
-      const { data } = await axios.post("https://stack-drf-api.herokuapp.com/answers/", formData);
+      await axios.post("https://stack-drf-api.herokuapp.com/answers/", formData)
+      .then(alert('You have successfully created an answer!'));
       history(`/questions/${params.id}`);
     } catch (err) {
       console.log(err);
@@ -54,6 +55,7 @@ function NewAnswerForm() {
             onChange={handleChange}
           />
         </Form.Group>
+        {console.log(errors)}
         <br/>
         <Button type="submit">Submit</Button>
       </Form>

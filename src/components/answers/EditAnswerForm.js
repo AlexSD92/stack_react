@@ -41,16 +41,13 @@ function EditAnswerForm(props) {
 
   const handleDelete = async() => {
     try {
-      await axios.delete(`https://stack-drf-api.herokuapp.com/answers/${params.id}`);
+      await axios.delete(`https://stack-drf-api.herokuapp.com/answers/${params.id}`)
+      .then(alert('You have successfully deleted your answer!'));
       history('/questions');
     } catch (err) {
       console.log(err);
     }
   };
-
-  function refresh() {
-    window.location.reload(true);
-  }
 
   const handleSubmit = async (event) => {
     const formData = new FormData();
@@ -59,7 +56,8 @@ function EditAnswerForm(props) {
     formData.append("answer", answer);
 
     try {
-      await axios.put(`https://stack-drf-api.herokuapp.com/answers/${params.id}`, formData);
+      await axios.put(`https://stack-drf-api.herokuapp.com/answers/${params.id}`, formData)
+      .then(alert('You have successfully updated your answer!'));
     } catch (err) {
         if (err.response?.status !== 401) {
             setErrors(err.response?.data);
@@ -83,6 +81,7 @@ function EditAnswerForm(props) {
             onChange={handleChange}
           />
         </Form.Group>
+        {console.log(errors)}
 
         <Button type="submit">Submit</Button>
       </Form>
