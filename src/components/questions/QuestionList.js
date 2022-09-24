@@ -1,10 +1,11 @@
-import '../../customcss/listview.css';
+import '../../customcss/questions.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import NewQuestionForm from './NewQuestionForm';
+
 
 function QuestionList() {
     const currentUser = useCurrentUser();
@@ -19,7 +20,7 @@ function QuestionList() {
     if (!questions) return null;
 
   return (
-      <div className='parentdivmargin'>
+    <div className='parentdivmargin'>
         <Container  className='list mt-5'>
 
         {currentUser ? <NewQuestionForm /> : null}
@@ -52,7 +53,7 @@ function QuestionList() {
         })}
         </Container>
     </div>
-  );
+    );
 }
 
 export default QuestionList

@@ -1,9 +1,8 @@
+import '../../customcss/questions.css';
 import React, { useState, useEffect } from "react";
-
-import axios from "axios";
-
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Row, Col } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 
 function EditQuestionForm() {
@@ -21,9 +20,7 @@ function EditQuestionForm() {
         try {
             const { data } = await axios.get(`https://stack-drf-api.herokuapp.com/questions/${params.id}`);
             const { summary, question } = data;
-
             setQuestionData({ summary, question })
-
         } catch (err) {
             console.log(err);
         }
@@ -66,9 +63,9 @@ function EditQuestionForm() {
   };
 
   return(
-    <div>
-
-      <h1>Question</h1>
+    <div className='mt-5 parentdivmargin'>
+      <h1>Edit your question.</h1>
+      <br/>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>Summary</Form.Label>
@@ -81,10 +78,13 @@ function EditQuestionForm() {
           />
         </Form.Group>
         {console.log(errors)}
+        <br/>
 
         <Form.Group>
           <Form.Label>Question</Form.Label>
           <Form.Control 
+            as='textarea'
+            rows='4'
             required
             type="text"
             name="question"
@@ -94,16 +94,16 @@ function EditQuestionForm() {
         </Form.Group>
         {console.log(errors)}
 
-        <Button type="submit">Submit</Button>
+        <br/>
+
+        <Row>
+          <Col><Button variant='success' type="submit">Submit</Button></Col>
+          <Col><Button variant='danger' onClick={handleDelete}>Delete</Button></Col>
+        </Row>
       </Form>
 
-      <Button onClick={handleDelete}>Delete</Button>
-
     </div>
-
-
   )
-
-}
+};
 
 export default EditQuestionForm;

@@ -1,8 +1,7 @@
+import '../../customcss/questions.css';
 import React, { useState } from "react";
-
-import axios from "axios";
-
 import { Form, Button, Alert } from "react-bootstrap";
+import axios from "axios";
 
 
 function NewQuestionForm() {
@@ -85,10 +84,7 @@ function NewQuestionForm() {
       </Form>
 
     </div>
-
-
   )
-
-}
+};
 
 export default NewQuestionForm
