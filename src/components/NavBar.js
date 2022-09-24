@@ -1,9 +1,10 @@
+import '../customcss/navbar.css';
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext"
+import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
 import '../api/axiosDefaults';
 
 function NavBar() {
@@ -22,13 +23,17 @@ function NavBar() {
     }
   };
 
-  const logInLinks = (
+  const logInLinks1 = (
     <>
       <NavLink className='unstylenavlink' to="questions">Questions</NavLink>
       <NavLink className='unstylenavlink' to="profiles">Profiles</NavLink>
+    </>
+  );
+
+  const logInLinks2 = (
+    <>
       <NavLink className='unstylenavlink' to="myprofile">{currentUser?.username}</NavLink>
-      <NavLink className='unstylenavlink' to="newquestion">New Question</NavLink>
-      <NavLink className='unstylenavlink' onClick={handleLogOut} to="questions">Log Out</NavLink>
+      <NavLink className='unstylenavlink' onClick={handleLogOut} to="questions">Log Out</NavLink>    
     </>
   );
 
@@ -48,14 +53,20 @@ function NavBar() {
           <Nav className="me-auto">
             <NavLink className='unstylenavlink' to="">About</NavLink>
 
-            {currentUser ? logInLinks : logOutLinks}
+            {currentUser ? logInLinks1 : logOutLinks}
 
           </Nav>
+
+          <Nav className="mr-auto">
+
+            {currentUser ? logInLinks2 : null}
+
+          </Nav>          
 
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
-}
+};
 
 export default NavBar;
