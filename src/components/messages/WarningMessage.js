@@ -1,4 +1,3 @@
-import '../../customcss/messages.css';
 import React from 'react';
 
 function WarningMessage() {

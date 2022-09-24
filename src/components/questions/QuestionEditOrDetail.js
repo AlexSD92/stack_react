@@ -5,7 +5,6 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import EditQuestionForm from './EditQuestionForm';
 import QuestionDetail from './QuestionDetail';
 import NewAnswerForm from '../answers/NewAnswerForm';
-import WarningMessage from '../messages/WarningMessage';
 import AnswerList from '../answers/AnswerList';
 import axios from 'axios';
 

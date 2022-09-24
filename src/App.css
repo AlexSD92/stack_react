@@ -37,6 +37,27 @@
   }
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Slab', serif;
+}
+
 p {
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.25rem;
+}
+
+.left {
+  text-align: left;
+}
+
+.list {
+  text-align: left;
+}
+
+.parentdivmargin {
+  margin: 0 20%;
+}
+
+.childdivmargin {
+  margin: 0 20%;
 }
