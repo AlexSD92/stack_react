@@ -3,14 +3,10 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container } from 'react-bootstrap'
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import EditQuestionForm from './EditQuestionForm';
 import axios from 'axios';
 
 
 function QuestionDetail() {
-    const currentUser = useCurrentUser();
-
     const params = useParams()
     const [questions, setQuestions] = useState([])
 
@@ -37,11 +33,7 @@ function QuestionDetail() {
 
               <p>This question was created by <strong>{questions.owner}</strong> on <strong>{questions.created_at}</strong>.</p>
               <p><strong>{questions.owner}</strong> last updated this question on <strong>{questions.updated_at}</strong></p>
-                            
-              {currentUser && currentUser.username === questions.owner ?  
-                <EditQuestionForm /> : 
-                null
-              }
+                          
             </div>
             
           <br/><br/><hr/><br/><br/>

@@ -1,9 +1,8 @@
+import '../../customcss/answers.css';
 import React, { useState, useEffect } from "react";
-
-import axios from "axios";
-
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Row, Col } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 
 function EditAnswerForm(props) {
@@ -66,14 +65,18 @@ function EditAnswerForm(props) {
   };
 
   return(
-    <div>
+    <div className='parentdivmargin mt-5'>
 
-      <h1>Answer</h1>
+      <h1>Edit your answer.</h1>
+
+      <br/>
+      
       <Form onSubmit={handleSubmit}>
 
         <Form.Group>
-          <Form.Label>Answer</Form.Label>
           <Form.Control 
+            as="textarea"
+            rows={10}
             required
             type="text"
             name="answer"
@@ -83,16 +86,16 @@ function EditAnswerForm(props) {
         </Form.Group>
         {console.log(errors)}
 
-        <Button type="submit">Submit</Button>
+        <br/>
+
+        <Row>
+          <Col><Button variant='success' type="submit">Submit</Button></Col>
+          <Col><Button variant='danger' onClick={handleDelete}>Delete</Button></Col>
+        </Row>
       </Form>
 
-      <Button onClick={handleDelete}>Delete</Button>
-
     </div>
-
-
   )
-
-}
+};
 
 export default EditAnswerForm;

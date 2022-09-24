@@ -1,9 +1,8 @@
+import '../../customcss/answers.css';
 import React, { useState } from "react";
-
-import axios from "axios";
-
 import { Form, Button } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 
 function NewAnswerForm() {
@@ -41,13 +40,18 @@ function NewAnswerForm() {
   };
 
   return(
-    <div>
+    <div className='parentdivmargin'>
 
-      <h4>Add an answer to this question:</h4>
+      <h3 className='left'>Add an answer to this question:</h3>
+
+      <br/>
+
       <Form onSubmit={handleSubmit}>
 
         <Form.Group>
           <Form.Control 
+            as='textarea'
+            rows={3}
             required
             type="text"
             name="answer"
@@ -57,13 +61,13 @@ function NewAnswerForm() {
         </Form.Group>
         {console.log(errors)}
         <br/>
-        <Button type="submit">Submit</Button>
+        <Button variant='success' type="submit">Submit</Button>
       </Form>
+      
+      <br/><br/><hr/><br/><br/>
 
     </div>
-
   )
+};
 
-}
-
-export default NewAnswerForm
+export default NewAnswerForm;

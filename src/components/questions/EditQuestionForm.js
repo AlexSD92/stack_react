@@ -102,6 +102,8 @@ function EditQuestionForm() {
         </Row>
       </Form>
 
+      <br/><br/><hr/><br/><br/>
+
     </div>
   )
 };

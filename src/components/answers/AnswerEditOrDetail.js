@@ -1,16 +1,16 @@
+import '../../customcss/answers.css';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import EditAnswerForm from './EditAnswerForm';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import AnswerDetail from './AnswerDetail'
+import AnswerDetail from './AnswerDetail';
+import axios from 'axios';
 
 
 function AnswerEditOrDetail() {
 
     const currentUser = useCurrentUser();
-
     const params = useParams()
     const [answers, setAnswers] = useState([])
 
@@ -30,8 +30,6 @@ function AnswerEditOrDetail() {
             }               
         </div>
         )
-      }
-
-
+      };
 
 export default AnswerEditOrDetail;

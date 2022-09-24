@@ -80,7 +80,7 @@ function NewQuestionForm() {
           
         <br/>
 
-        <Button type="submit">Submit</Button>
+        <Button variant="success" type="submit">Submit</Button>
       </Form>
 
     </div>
