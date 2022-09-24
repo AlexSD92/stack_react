@@ -36,24 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-.unstylenavlink {
-  text-decoration: none;
-  color: white;
-  margin: 0 10px 0 10px;
-}
-
-.brand {
-  font-size: 1.5rem;
-  margin: 0 25px 0 0;
-}
-
-.unstyle {
-  text-decoration: none;
-  color: black;
-  margin: 0 10px 0 10px;
-}
-
-.list {
-  text-align: left;
-}

@@ -40,7 +40,8 @@ function NewQuestionForm() {
   return(
     <div>
 
-      <h1>Question</h1>
+      <h1>Add a new question.</h1>
+      <br/>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>Summary</Form.Label>
@@ -57,10 +58,14 @@ function NewQuestionForm() {
                 {message}
               </Alert>
             ))}
+        
+        <br/>
 
         <Form.Group>
           <Form.Label>Question</Form.Label>
           <Form.Control 
+            as='textarea'
+            rows='4'
             required
             type="text"
             name="question"
@@ -73,6 +78,8 @@ function NewQuestionForm() {
                 {message}
               </Alert>
             ))}
+          
+        <br/>
 
         <Button type="submit">Submit</Button>
       </Form>
