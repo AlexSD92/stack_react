@@ -25,7 +25,7 @@ function App() {
       <Route path="/answers/:id" element={<AnswerEditOrDetail />} />
       <Route path="/profiles" element={<ProfileList />} />
       <Route path="/profiles/:id" element={<ProfileEditOrDetail />} />
-      <Route path="/myprofile" element={<MyProfile />} />
+      <Route path="/myprofile" element={!currentUser ? <Navigate to='/login' /> : <MyProfile />} />
     </>
   )
   

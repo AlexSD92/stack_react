@@ -2,8 +2,8 @@ import React from 'react'
 
 function PageNotFound() {
   return (
-    <div>
-        <h1>PAGE NOT FOUND</h1>
+    <div className='min-vh-100 d-flex flex-row justify-content-center'>
+        <h1 className='align-self-center'>PAGE NOT FOUND</h1>
     </div>
   )
 }
