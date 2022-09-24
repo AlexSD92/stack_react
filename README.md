@@ -1,4 +1,4 @@
-# 
+# Q & A App using React.js & Django REST Framework
 ##### By Alejandro Spara Dominguez
 
 ##### This project was developed for the fifth project with the Code Institute and the Full Stack Development Course. 
@@ -19,6 +19,9 @@
     4. [Scope](#scope)
         - [Components](#components)
     5. [Skeleton](#skeleton)
+    6. [Surface](#surface)
+        1. [Typography](#typography)
+    7. [Structure](#structure)
 3. [Features](#features)
     1. [Current Features](#current-features)
     2. [Future Features](#future-features)
@@ -116,6 +119,15 @@ This app is aimed at a general audience.
 
 Wireframes for the project can be found within the assets directory of this repository.
 
+### Surface
+
+##### Typography
+
+The following were used from Google Fonts: 
+- font-family: 'Aref Ruqaa Ink', serif: for app logo
+- font-family: 'Roboto Slab', serif: for headings
+- font-family: 'Source Sans Pro', sans-serif: for all other text
+
 # Features
 
 ### Current Features
@@ -136,6 +148,10 @@ Wireframes for the project can be found within the assets directory of this repo
 - A direct messaging system to contact other users directly 
 - Additional profile features such as images 
 - Ability to upvote and downvote questions and answers in order to provide better visibility on the best questions and answers
+- Pagination
+- Search feature
+- Filter feature
+- Profile images
 
 # Technologies
 ### Languages
