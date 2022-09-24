@@ -1,10 +1,11 @@
 import '../../customcss/questions.css';
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import NewQuestionForm from './NewQuestionForm';
+import WarningMessage from '../messages/WarningMessage';
+import axios from 'axios';
 
 
 function QuestionList() {
@@ -23,7 +24,7 @@ function QuestionList() {
     <div className='parentdivmargin'>
         <Container  className='list mt-5'>
 
-        {currentUser ? <NewQuestionForm /> : null}
+        {currentUser ? <NewQuestionForm /> : <WarningMessage />}
 
         <br/><br/><hr/><br/><br/>
 

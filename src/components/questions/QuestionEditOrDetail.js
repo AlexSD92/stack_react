@@ -34,7 +34,7 @@ function QuestionEditOrDetail() {
 
             {currentUser ?
                 <NewAnswerForm /> :
-                <WarningMessage />
+                null
             }
 
             <AnswerList questions={questions} />
