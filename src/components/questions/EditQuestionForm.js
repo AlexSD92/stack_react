@@ -1,11 +1,12 @@
 import '../../customcss/questions.css';
 import React, { useState, useEffect } from "react";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Button, Row, Col, Alert } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 
 function EditQuestionForm() {
+  let customError = '';
   const [errors, setErrors] = useState({});
   const [questionData, setQuestionData] = useState({
     summary: "",
@@ -39,7 +40,6 @@ function EditQuestionForm() {
   const handleDelete = async() => {
     try {
       await axios.delete(`https://stack-drf-api.herokuapp.com/questions/${params.id}`)
-      .then(alert('You have successfully deleted your question!'));
       history('/questions/');
     } catch (err) {
       console.log(err);
@@ -47,6 +47,7 @@ function EditQuestionForm() {
   };
 
   const handleSubmit = async (event) => {
+    if (customError) event.preventDefault();
     const formData = new FormData();
 
     formData.append("summary", summary);
@@ -77,6 +78,7 @@ function EditQuestionForm() {
             onChange={handleChange}
           />
         </Form.Group>
+        {summary.length === 0 ? customError = <Alert variant='warning'>You can't leave this field empty, please resolve or you will be unable to submit</Alert> : null}
         {console.log(errors)}
         <br/>
 
@@ -92,6 +94,7 @@ function EditQuestionForm() {
             onChange={handleChange}
           />
         </Form.Group>
+        {question.length === 0 ? customError = <Alert variant='warning'>You can't leave this field empty, please resolve or you will be unable to submit</Alert> : null}
         {console.log(errors)}
 
         <br/>
