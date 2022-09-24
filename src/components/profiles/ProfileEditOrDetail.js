@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import '../../customcss/profiles.css';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import EditProfileForm from './EditProfileForm';

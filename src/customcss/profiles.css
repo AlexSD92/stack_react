@@ -1,0 +1,32 @@
+.unstyle {
+    text-decoration: none;
+    color: black;
+    margin: 0 10px 0 10px;
+  }
+
+.left {
+    text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Slab', serif;
+}
+
+p {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.parentdivmargin {
+    margin: 0 20%;
+}
+
+.childdivmargin {
+    margin: 0 20%;
+}
+
+.individualp {
+    background-color: rgb(236, 234, 234);
+    border-radius: 25px;
+    padding: 2.5%;
+    margin: 2.5%;
+  }

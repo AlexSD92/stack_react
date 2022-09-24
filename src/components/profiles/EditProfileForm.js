@@ -1,12 +1,11 @@
+import '../../customcss/profiles.css';
 import React, { useState, useEffect } from "react";
-
-import axios from "axios";
-
 import { Form, Button } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 
-function EditProfileForm() {
+function EditProfileForm(props) {
   const [errors, setErrors] = useState({});
   const [profileData, setProfileData] = useState({
     name: "",
@@ -56,9 +55,12 @@ function EditProfileForm() {
   };
 
   return(
-    <div>
+    <div className='parentdivmargin mt-5 left'>
 
       <h1>Edit Profile</h1>
+
+      <br/>
+
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>Name</Form.Label>
@@ -71,6 +73,8 @@ function EditProfileForm() {
         </Form.Group>
         {console.log(errors)}
 
+        <br/>
+
         <Form.Group>
           <Form.Label>Bio</Form.Label>
           <Form.Control 
@@ -81,15 +85,14 @@ function EditProfileForm() {
           />
         </Form.Group>
         {console.log(errors)}
+
+        <br/>
         
-        <Button type="submit">Submit</Button>
+        <Button variant="success" type="submit">Submit</Button>
       </Form>
 
     </div>
-
-
   )
-
-}
+};
 
 export default EditProfileForm;
