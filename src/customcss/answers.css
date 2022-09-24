@@ -1,25 +1,3 @@
-.unstyle {
-    text-decoration: none;
-    color: black;
-    margin: 0 10px 0 10px;
-  }
-  
-
-
-.left {
-    text-align: left;
-}
-
-
-
-.parentdivmargin {
-    margin: 0 20%;
-}
-
-.childdivmargin {
-    margin: 0 20%;
-}
-
 .individuala {
     background-color: rgb(236, 234, 234);
     border-radius: 25px;

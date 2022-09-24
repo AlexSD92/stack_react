@@ -37,16 +37,16 @@ function QuestionList() {
                 <div className='individualq' key={question.id}>
                     <Row>
                         <Col xs={10}>
-                            <h3 className=''><Link className='unstyle m-0' to={`/questions/${question.id}`}>{question.summary}</Link></h3>
+                            <h3 className='text-wrap'><Link className='unstyle m-0' to={`/questions/${question.id}`}>{question.summary}</Link></h3>
                             <p className='m-0'>{question.question}</p>                         
                         </Col>
                         <Col>
                             <Row><p>Created by:</p></Row>
-                            <Row><h5 className='p-2 badge rounded-pill bg-success'>{question.owner}</h5></Row>
+                            <Row className='p-3'><h5 className='w-auto p-2 badge rounded-pill bg-success'>{question.owner}</h5></Row>
                             <Row><p>Created on:</p></Row>
-                            <Row><h5 className='p-2 badge rounded-pill bg-secondary'>{question.created_at}</h5></Row>
+                            <Row className='p-3'><h5 className='w-auto p-2 badge rounded-pill bg-secondary'>{question.created_at}</h5></Row>
                             <Row><p>Updated on:</p></Row>
-                            <Row><h5 className='p-2 badge rounded-pill bg-secondary'>{question.updated_at}</h5></Row>
+                            <Row className='p-3'><h5 className='w-auto p-2 badge rounded-pill bg-secondary'>{question.updated_at}</h5></Row>
                         </Col>   
                     </Row>
                 </div>

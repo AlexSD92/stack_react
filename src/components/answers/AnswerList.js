@@ -31,11 +31,11 @@ function AnswerList(props) {
                             </Col>
                             <Col>
                                 <Row><p>Created by:</p></Row>
-                                <Row><h5 className='p-2 badge rounded-pill bg-success'>{filteredAnswer.owner}</h5></Row>
+                                <Row className='p-3'><h5 className='w-auto p-2 badge rounded-pill bg-success'>{filteredAnswer.owner}</h5></Row>
                                 <Row><p>Created on:</p></Row>
-                                <Row><h5 className='p-2 badge rounded-pill bg-secondary'>{filteredAnswer.created_at}</h5></Row>
+                                <Row className='p-3'><h5 className='w-auto p-2 badge rounded-pill bg-secondary'>{filteredAnswer.created_at}</h5></Row>
                                 <Row><p>Updated on:</p></Row>
-                                <Row><h5 className='p-2 badge rounded-pill bg-secondary'>{filteredAnswer.updated_at}</h5></Row>
+                                <Row className='p-3'><h5 className='w-auto p-2 badge rounded-pill bg-secondary'>{filteredAnswer.updated_at}</h5></Row>
                             </Col>                        
                         </Row>
                     </div>
