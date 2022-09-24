@@ -5,6 +5,7 @@ import axios from "axios";
 
 
 function NewQuestionForm() {
+  let customError = '';
   const [errors, setErrors] = useState({});
   const [questionData, setQuestionData] = useState({
     summary: "",
@@ -20,6 +21,7 @@ function NewQuestionForm() {
   };
 
   const handleSubmit = async (event) => {
+    if (customError) event.preventDefault();
     const formData = new FormData();
 
     formData.append("summary", summary);
@@ -27,7 +29,6 @@ function NewQuestionForm() {
 
     try {
       await axios.post("https://stack-drf-api.herokuapp.com/questions/", formData)
-      .then(alert('You have successfully submitted your question!'));
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
@@ -52,6 +53,7 @@ function NewQuestionForm() {
             onChange={handleChange}
           />
         </Form.Group>
+        {summary.length > 100 ? customError = <Alert variant='warning'>Summary must be less than 100 characters, please resolve or you will be unable to submit</Alert> : null}
         {errors.summary?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
@@ -72,7 +74,7 @@ function NewQuestionForm() {
             onChange={handleChange}
           />
         </Form.Group>
-        {errors.question?.map((message, idx) => (
+        {errors.summary?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
               </Alert>
