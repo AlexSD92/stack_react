@@ -1,9 +1,8 @@
 import '../../customcss/questions.css';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import NewQuestionForm from './NewQuestionForm';
 import WarningMessage from '../messages/WarningMessage';
 import { axiosReq } from '../../api/axiosDefaults';
 
@@ -24,7 +23,10 @@ function QuestionList() {
     <div className='parentdivmargin'>
         <Container  className='list mt-5'>
 
-        {currentUser ? <NewQuestionForm /> : <WarningMessage />}
+        {currentUser ? 
+        <Link className='unstylelinkbutton' to={`/questions/add/${currentUser.username}`}><Button variant='success'>Add Question</Button></Link>
+        : 
+        <WarningMessage />}
 
         <br/><br/><hr/><br/><br/>
 

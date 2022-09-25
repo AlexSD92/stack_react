@@ -24,15 +24,16 @@ function NewQuestionForm() {
 
   const handleSubmit = async (event) => {
     if (customError) {
-      event.preventDefault()
+      event.preventDefault();
     } else {
+      event.preventDefault();
       const formData = new FormData();  
       formData.append("summary", summary);
       formData.append("question", question);
   
       try {
         await axiosReq.post("https://stack-drf-api.herokuapp.com/questions/", formData)
-        .then(history(0));
+        .then(history('/questions'));
       } catch (err) {
         console.log(err);
         if (err.response?.status !== 401) {
@@ -44,7 +45,7 @@ function NewQuestionForm() {
   };
 
   return(
-    <div>
+    <div className='parentdivmargin mt-5'>
 
       <h1>Add a new question.</h1>
       <br/>

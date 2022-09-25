@@ -19,6 +19,7 @@ import AnswerDetail from './components/answers/AnswerDetail';
 import DeleteAnswer from './components/answers/DeleteAnswer';
 import EditProfileForm from './components/profiles/EditProfileForm';
 import NewAnswerForm from './components/answers/NewAnswerForm';
+import NewQuestionForm from './components/questions/NewQuestionForm';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
     <>
       <Route path="/questions" element={<QuestionList />} />
       <Route path="/questions/:id" element={<QuestionEditOrDetail />} />
+      <Route path="/questions/add/:owner" element={<NewQuestionForm />} />
       <Route path="/questions/:id/edit/:owner" element={<EditQuestionForm />} />
       <Route path="/questions/:id/delete/:owner" element={<DeleteQuestion />} />
       <Route path="/answers/:id" element={<AnswerDetail />} />
