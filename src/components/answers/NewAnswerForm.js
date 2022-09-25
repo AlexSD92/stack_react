@@ -33,7 +33,8 @@ function NewAnswerForm() {
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
-        setErrors(err.respose?.data)
+        setErrors(err.respose?.data);
+        console.log(errors);
       }
     }
   };
@@ -58,9 +59,11 @@ function NewAnswerForm() {
             onChange={handleChange}
           />
         </Form.Group>
-        {console.log(errors)}
+        
         <br/>
+
         <Button variant='success' type="submit">Submit</Button>
+
       </Form>
       
       <br/><br/><hr/><br/><br/>

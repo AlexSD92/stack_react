@@ -54,6 +54,7 @@ function EditQuestionForm() {
       } catch (err) {
         if (err.response?.status !== 401) {
           setErrors(err.response?.data);
+          console.log(errors);
         }
       }
     }
@@ -92,9 +93,8 @@ function EditQuestionForm() {
           }
 
         </Form.Group>
-        {summary.length === 0 ? customError = <Alert variant='warning'>You can't leave this field empty, please resolve or you will be unable to submit</Alert> : null}
-        {summary.length > 100 ? customError = <Alert variant='warning'>Summary must be less than 100 characters, please resolve or you will be unable to submit</Alert> : null}
-        {console.log(errors)}
+        {summary.length === 0 || summary.length > 100 ? customError = <Alert variant='warning'>Must be between 0 and 100 characters in length, please resolve or you will be unable to submit.</Alert> : null}
+        
         <br/>
 
         <Form.Group>
@@ -128,11 +128,9 @@ function EditQuestionForm() {
         }
         </Form.Group>
         {question.length === 0 ? customError = <Alert variant='warning'>You can't leave this field empty, please resolve or you will be unable to submit</Alert> : null}
-        {console.log(errors)}
 
         <br/>
         
-
         <Row>
           <Col md={6}><Button variant='success' type="submit">Submit</Button></Col>
           <Col md={6}><Link className='unstylelinkbutton m-0' to={`/questions/${params.id}/delete/${params.owner}`}><Button variant='danger'>Delete</Button></Link></Col>

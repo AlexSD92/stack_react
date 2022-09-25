@@ -37,6 +37,7 @@ function NewQuestionForm() {
         console.log(err);
         if (err.response?.status !== 401) {
           setErrors(err.respose?.data)
+          console.log(errors)
         }
       }
     }
@@ -59,7 +60,6 @@ function NewQuestionForm() {
           />
         </Form.Group>
         {summary.length > 100 ? customError = <Alert variant='warning'>Summary must be less than 100 characters, please resolve or you will be unable to submit</Alert> : null}
-        {console.log(errors)}
         
         <br/>
 
@@ -75,7 +75,6 @@ function NewQuestionForm() {
             onChange={handleChange}
           />
         </Form.Group>
-        {console.log(errors)}
           
         <br/>
 

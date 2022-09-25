@@ -58,6 +58,7 @@ function EditAnswerForm() {
       } catch (err) {
           if (err.response?.status !== 401) {
               setErrors(err.response?.data);
+              console.log(errors);
           }
       }
     }
@@ -109,8 +110,6 @@ function EditAnswerForm() {
 
         </Form.Group>
         {answer.length === 0 ? customError = <Alert variant='warning'>You can't leave this field empty, please resolve or you will be unable to submit</Alert> : null}
-        {console.log(errors)}
-        {console.log(customError)}
 
         <br/>
 
