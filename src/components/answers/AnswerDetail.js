@@ -1,11 +1,14 @@
 import '../../customcss/answers.css';
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import axios from 'axios';
 
 
 function AnswerDetail() {
+  const currentUser = useCurrentUser();
 
   const params = useParams()
   const [answers, setAnswers] = useState([])
@@ -28,7 +31,12 @@ function AnswerDetail() {
           <p>{answers.answer}</p>
           <p>This question was created by <strong>{answers.owner}</strong> on <strong>{answers.created_at}</strong>.</p>
               <p><strong>{answers.owner}</strong> last updated this question on <strong>{answers.updated_at}</strong></p>
-          </div>                
+          </div>   
+          {currentUser && currentUser.username === answers.owner ?
+            <Button><Link className='unstylelinkbutton' to={`/answers/${answers.question_id}/${answers.id}/edit`}>Edit</Link></Button>    
+            : 
+            null
+            }             
         </div>
         )
       };
