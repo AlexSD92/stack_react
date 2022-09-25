@@ -40,14 +40,14 @@ function EditProfileForm(props) {
   };
 
   const handleSubmit = async (event) => {
+    if (customError) event.preventDefault();
     const formData = new FormData();
 
     formData.append("name", name);
     formData.append("bio", bio);
 
     try {
-      await axios.put(`https://stack-drf-api.herokuapp.com/profiles/${params.id}`, formData)
-      .then(alert('Your profile has been updated!'));
+      await axios.put(`https://stack-drf-api.herokuapp.com/profiles/${params.id}`, formData);
       } catch (err) {
         if (err.response?.status !== 401) {
             setErrors(err.response?.data);

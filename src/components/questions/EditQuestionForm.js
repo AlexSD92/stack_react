@@ -54,8 +54,7 @@ function EditQuestionForm() {
     formData.append("question", question);
 
     try {
-      await axios.put(`https://stack-drf-api.herokuapp.com/questions/${params.id}`, formData)
-      .then(alert('You have successfully updated your question!'));
+      await axios.put(`https://stack-drf-api.herokuapp.com/questions/${params.id}`, formData);
       } catch (err) {
         if (err.response?.status !== 401) {
             setErrors(err.response?.data);

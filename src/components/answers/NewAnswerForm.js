@@ -28,8 +28,7 @@ function NewAnswerForm() {
     formData.append("question", params.id);
 
     try {
-      await axios.post("https://stack-drf-api.herokuapp.com/answers/", formData)
-      .then(alert('You have successfully created an answer!'));
+      await axios.post("https://stack-drf-api.herokuapp.com/answers/", formData);
       history(`/questions/${params.id}`);
     } catch (err) {
       console.log(err);

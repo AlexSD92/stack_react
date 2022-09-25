@@ -50,14 +50,14 @@ function EditAnswerForm(props) {
   };
 
   const handleSubmit = async (event) => {
+    if (customError) event.preventDefault();
     const formData = new FormData();
 
     formData.append("question", question);
     formData.append("answer", answer);
 
     try {
-      await axios.put(`https://stack-drf-api.herokuapp.com/answers/${params.id}`, formData)
-      .then(alert('You have successfully updated your answer!'));
+      await axios.put(`https://stack-drf-api.herokuapp.com/answers/${params.id}`, formData);
     } catch (err) {
         if (err.response?.status !== 401) {
             setErrors(err.response?.data);
