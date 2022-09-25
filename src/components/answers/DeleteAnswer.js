@@ -26,8 +26,8 @@ function DeleteAnswer() {
         <h1>Are you sure you want to delete this answer?</h1>
         <br/>
         <Row>
-          <Col><Link className='unstylelinkbutton m-0' to={`/answers/${params.question_id}/${params.id}/edit`}><Button variant='success' type="submit">No, take me back to safety!</Button></Link></Col>
-          <Col><Button variant='danger' onClick={handleDelete}>Yes, I'm certain, please continue.</Button></Col>
+          <Col md={6}><Link className='unstylelinkbutton m-0' to={`/answers/${params.question_id}/${params.id}/edit`}><Button variant='success' type="submit">No, take me back to safety!</Button></Link></Col>
+          <Col md={6}><Button variant='danger' onClick={handleDelete}>Yes, I'm certain, please continue.</Button></Col>
         </Row>
       </>
       :

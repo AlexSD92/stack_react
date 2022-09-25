@@ -6,7 +6,7 @@ function About() {
     <div className='parentdivmargin mt-5 left'>
     <h1>About this application</h1> 
       <Row>
-        <Col>
+        <Col md={6}>
           <p>This application is largely broken up into 3 sections:</p>
             <ol>
               <li>
@@ -36,7 +36,7 @@ function About() {
             </li>
           </ul>
         </Col>
-        <Col>
+        <Col md={6}>
           <p>Answers:</p>
           <ul>
             <li>
