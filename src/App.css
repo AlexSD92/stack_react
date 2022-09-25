@@ -71,3 +71,8 @@ p, li {
   text-decoration: none;
   color: black;
 }
+
+.unstylelinkbutton {
+  text-decoration: none;
+  color: white;
+}

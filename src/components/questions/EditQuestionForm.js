@@ -140,7 +140,7 @@ function EditQuestionForm() {
 
         <Row>
           <Col><Button variant='success' type="submit">Submit</Button></Col>
-          <Col><Button variant='danger'><Link className='unstyle m-0' to={`/questions/${question.id}/delete`}>Delete</Link></Button></Col>
+          <Col><Button variant='danger'><Link className='unstyle m-0' to={`/questions/${params.id}/delete`}>Delete</Link></Button></Col>
         </Row>
 
       </Form>
