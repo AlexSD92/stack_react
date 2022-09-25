@@ -7,13 +7,13 @@ import { useNavigate } from 'react-router-dom';
 
 function NewQuestionForm() {
   let customError = '';
-  const history = useNavigate();
   const [errors, setErrors] = useState({});
   const [questionData, setQuestionData] = useState({
     summary: "",
     question: "",
   });
   const { summary, question } = questionData;
+  const history = useNavigate();
 
   const handleChange = (event) => {
     setQuestionData({
@@ -23,20 +23,21 @@ function NewQuestionForm() {
   };
 
   const handleSubmit = async (event) => {
-    if (customError) event.preventDefault();
-    event.preventDefault()
-    const formData = new FormData();
-
-    formData.append("summary", summary);
-    formData.append("question", question);
-
-    try {
-      await axios.post("https://stack-drf-api.herokuapp.com/questions/", formData)
-      history(-1)
-    } catch (err) {
-      console.log(err);
-      if (err.response?.status !== 401) {
-        setErrors(err.respose?.data)
+    if (customError) {
+      event.preventDefault()
+    } else {
+      const formData = new FormData();  
+      formData.append("summary", summary);
+      formData.append("question", question);
+  
+      try {
+        await axios.post("https://stack-drf-api.herokuapp.com/questions/", formData)
+        .then(history(0));
+      } catch (err) {
+        console.log(err);
+        if (err.response?.status !== 401) {
+          setErrors(err.respose?.data)
+        }
       }
     }
   };

@@ -40,17 +40,21 @@ function EditQuestionForm() {
   };
 
   const handleSubmit = async (event) => {
-    if (customError) event.preventDefault();
-    const formData = new FormData();
-
-    formData.append("summary", summary);
-    formData.append("question", question);
-    
-    try {
-      await axios.put(`https://stack-drf-api.herokuapp.com/questions/${params.id}`, formData);
-    } catch (err) {
-      if (err.response?.status !== 401) {
-        setErrors(err.response?.data);
+    if (customError) {
+      event.preventDefault();
+    } else {
+      const formData = new FormData();
+  
+      formData.append("summary", summary);
+      formData.append("question", question);
+      
+      try {
+        await axios.put(`https://stack-drf-api.herokuapp.com/questions/${params.id}`, formData)
+        .then(history(`/questions/${params.id}`));        
+      } catch (err) {
+        if (err.response?.status !== 401) {
+          setErrors(err.response?.data);
+        }
       }
     }
   };
