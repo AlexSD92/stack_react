@@ -4,7 +4,6 @@ import { Form, Button } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { axiosReq } from '../../api/axiosDefaults';
-import WarningMessage from '../messages/WarningMessage';
 
 
 function NewAnswerForm() {
