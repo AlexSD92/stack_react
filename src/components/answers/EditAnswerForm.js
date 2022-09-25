@@ -1,20 +1,23 @@
 import '../../customcss/answers.css';
 import React, { useState, useEffect } from "react";
 import { Form, Button, Row, Col, Alert } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import axios from "axios";
 
 
-function EditAnswerForm(props) {
+function EditAnswerForm() {
+  const currentUser = useCurrentUser()
+  const params = useParams();
   let customError = '';
-  const question = props.answers.question_id;
+  const question = params.question_id;
   const [errors, setErrors] = useState({});
+  console.log(question);
   const [answerData, setAnswerData] = useState({
     answer: "",
   });
   const { answer } = answerData;
   const history = useNavigate();
-  const params = useParams();
 
   useEffect(() => {
     const handleMount = async () => {
@@ -39,18 +42,10 @@ function EditAnswerForm(props) {
     });
   };
 
-  const handleDelete = async() => {
-    try {
-      await axios.delete(`https://stack-drf-api.herokuapp.com/answers/${params.id}`)
-      .then(alert('You have successfully deleted your answer!'));
-      history('/questions');
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const handleSubmit = async (event) => {
     if (customError) event.preventDefault();
+    event.preventDefault();
+
     const formData = new FormData();
 
     formData.append("question", question);
@@ -58,6 +53,7 @@ function EditAnswerForm(props) {
 
     try {
       await axios.put(`https://stack-drf-api.herokuapp.com/answers/${params.id}`, formData);
+      history(-1)
     } catch (err) {
         if (err.response?.status !== 401) {
             setErrors(err.response?.data);
@@ -68,6 +64,13 @@ function EditAnswerForm(props) {
   return(
     <div className='parentdivmargin mt-5'>
 
+    {!currentUser ? 
+      customError = 
+        <Alert variant='danger'>
+          You aren't authorised to edit this answer.
+        </Alert>
+      : null }
+
       <h1>Edit your answer.</h1>
 
       <br/>
@@ -75,15 +78,33 @@ function EditAnswerForm(props) {
       <Form onSubmit={handleSubmit}>
 
         <Form.Group>
-          <Form.Control 
-            as="textarea"
-            rows={10}
-            required
-            type="text"
-            name="answer"
-            value={answer}
-            onChange={handleChange}
-          />
+          {!currentUser ?
+              <>
+                <Form.Control 
+                  disabled
+                  as="textarea"
+                  rows={10}
+                  required
+                  type="text"
+                  name="answer"
+                  value={answer}
+                  onChange={handleChange}
+                />
+              </>
+              :
+              <>
+                <Form.Control 
+                  as="textarea"
+                  rows={10}
+                  required
+                  type="text"
+                  name="answer"
+                  value={answer}
+                  onChange={handleChange}
+                />
+              </>       
+            }
+
         </Form.Group>
         {answer.length === 0 ? customError = <Alert variant='warning'>You can't leave this field empty, please resolve or you will be unable to submit</Alert> : null}
         {console.log(errors)}
@@ -93,7 +114,7 @@ function EditAnswerForm(props) {
 
         <Row>
           <Col><Button variant='success' type="submit">Submit</Button></Col>
-          <Col><Button variant='danger' onClick={handleDelete}>Delete</Button></Col>
+          <Col><Button variant='danger'><Link className='unstylelinkbutton m-0' to={`/answers/${params.question_id}/${params.id}/delete`}>Delete</Link></Button></Col>
         </Row>
       </Form>
 

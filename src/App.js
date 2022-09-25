@@ -16,6 +16,7 @@ import EditQuestionForm from './components/questions/EditQuestionForm';
 import EditAnswerForm from './components/answers/EditAnswerForm';
 import DeleteQuestion from './components/questions/DeleteQuestion';
 import AnswerDetail from './components/answers/AnswerDetail';
+import DeleteAnswer from './components/answers/DeleteAnswer';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
       <Route path="/questions/:id/delete" element={<DeleteQuestion />} />
       <Route path="/answers/:id" element={<AnswerDetail />} />
       <Route path="/answers/:question_id/:id/edit" element={<EditAnswerForm />} />
+      <Route path="/answers/:question_id/:id/delete" element={<DeleteAnswer />} />
       <Route path="/profiles" element={<ProfileList />} />
       <Route path="/profiles/:id" element={<ProfileEditOrDetail />} />
       <Route path="/myprofile" element={!currentUser ? <Navigate to='/login' /> : <MyProfile />} />
