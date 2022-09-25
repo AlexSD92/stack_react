@@ -3,11 +3,9 @@ import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
 
 function NewQuestionForm() {
-  const currentUser = useCurrentUser();
   let customError = '';
   const history = useNavigate();
   const [errors, setErrors] = useState({});
@@ -60,6 +58,7 @@ function NewQuestionForm() {
           />
         </Form.Group>
         {summary.length > 100 ? customError = <Alert variant='warning'>Summary must be less than 100 characters, please resolve or you will be unable to submit</Alert> : null}
+        {}
         {errors.summary?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
