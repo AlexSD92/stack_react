@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Button, Col, Row, Container, Alert, } from "react-bootstrap";
 import axios from "axios";
+import { axiosReq } from '../../api/axiosDefaults';
 
 const Register = () => {
   const [signUpData, setSignUpData] = useState({
@@ -28,7 +29,7 @@ const Register = () => {
     event.preventDefault();
     try {
       console.log(signUpData)
-      await axios.post("https://stack-drf-api.herokuapp.com/dj-rest-auth/registration/", signUpData);
+      await axiosReq.post("https://stack-drf-api.herokuapp.com/dj-rest-auth/registration/", signUpData);
       history("/login");
     } catch (err) {
       setErrors(err.response?.data);
