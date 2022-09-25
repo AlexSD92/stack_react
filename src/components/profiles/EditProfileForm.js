@@ -2,7 +2,7 @@ import '../../customcss/profiles.css';
 import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
+import { axiosReq } from '../../api/axiosDefaults';
 
 
 function EditProfileForm(props) {
@@ -19,7 +19,7 @@ function EditProfileForm(props) {
   useEffect(() => {
     const handleMount = async () => {
         try {
-            const { data } = await axios.get(`https://stack-drf-api.herokuapp.com/profiles/${params.id}`);
+            const { data } = await axiosReq.get(`https://stack-drf-api.herokuapp.com/profiles/${params.id}`);
             const { name, bio } = data;
 
             setProfileData({ name, bio })
@@ -49,7 +49,7 @@ function EditProfileForm(props) {
       formData.append("bio", bio);
   
       try {
-        await axios.put(`https://stack-drf-api.herokuapp.com/profiles/${params.id}`, formData)
+        await axiosReq.put(`https://stack-drf-api.herokuapp.com/profiles/${params.id}`, formData)
         .then(history('/myprofile'));
         } catch (err) {
           if (err.response?.status !== 401) {

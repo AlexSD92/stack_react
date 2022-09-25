@@ -2,13 +2,13 @@ import '../../customcss/profiles.css';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
-import axios from 'axios';
+import { axiosReq } from '../../api/axiosDefaults';
 
 function ProfileList() {
     const [profiles, setProfiles] = useState([])
 
     useEffect(() => {
-        axios.get('https://stack-drf-api.herokuapp.com/profiles/').then((response) => {
+        axiosReq.get('https://stack-drf-api.herokuapp.com/profiles/').then((response) => {
             setProfiles(response.data);
         });
     }, []);

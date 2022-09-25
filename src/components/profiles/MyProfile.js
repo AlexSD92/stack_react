@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { Row, Col, Button } from 'react-bootstrap';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import axios from 'axios';
+import { axiosReq } from '../../api/axiosDefaults';
 
 function ProfileList() {
     const currentUser = useCurrentUser();
     const [profiles, setProfiles] = useState([])
 
     useEffect(() => {
-        axios.get('https://stack-drf-api.herokuapp.com/profiles/').then((response) => {
+        axiosReq.get('https://stack-drf-api.herokuapp.com/profiles/').then((response) => {
             setProfiles(response.data);
         });
     }, []);
@@ -44,7 +44,7 @@ function ProfileList() {
                                     <h5 className='p-2 badge rounded-pill bg-secondary'>{filteredProfile.updated_at}</h5>
                                 </Col>
                             </Row>  
-                            <Button><Link className='unstyle' to={`/profiles/${filteredProfile.id}/edit`}>Edit</Link></Button>            
+                            <Link className='unstyle' to={`/profiles/${filteredProfile.id}/edit`}><Button>Edit</Button></Link>            
                         </div>
                     </div>
                 )

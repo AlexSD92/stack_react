@@ -2,8 +2,8 @@ import '../../customcss/profiles.css';
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Col, Row, Button } from 'react-bootstrap';
-import axios from 'axios';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import { axiosReq } from '../../api/axiosDefaults';
 
 
 function ProfileDetail() {
@@ -12,7 +12,7 @@ function ProfileDetail() {
     const [profiles, setProfiles] = useState([])
 
     useEffect(() => {
-      axios.get(`https://stack-drf-api.herokuapp.com/profiles/${params.id}`).then((response) => {
+      axiosReq.get(`https://stack-drf-api.herokuapp.com/profiles/${params.id}`).then((response) => {
         setProfiles(response.data);
       });
     }, [params]);
@@ -43,7 +43,7 @@ function ProfileDetail() {
               </Col>
           </Row>  
           {currentUser && currentUser.username === profiles.owner ?  
-                <Button><Link className='unstylelinkbutton' to={`/profiles/${profiles.id}/edit`}>Edit</Link></Button>    
+                <Link className='unstylelinkbutton' to={`/profiles/${profiles.id}/edit`}><Button>Edit</Button></Link>   
                 : 
                 null
             }             
