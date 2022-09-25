@@ -5,7 +5,7 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import QuestionDetail from './QuestionDetail';
 import NewAnswerForm from '../answers/NewAnswerForm';
 import AnswerList from '../answers/AnswerList';
-import axios from 'axios';
+import { axiosReq } from '../../api/axiosDefaults';
 
 
 function QuestionEditOrDetail() {
@@ -15,7 +15,7 @@ function QuestionEditOrDetail() {
     const [questions, setQuestions] = useState([])
 
     useEffect(() => {
-        axios.get(`https://stack-drf-api.herokuapp.com/questions/${params.id}`).then((response) => {
+        axiosReq.get(`https://stack-drf-api.herokuapp.com/questions/${params.id}`).then((response) => {
         setQuestions(response.data);
         });
     }, [params]);

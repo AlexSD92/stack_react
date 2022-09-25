@@ -1,8 +1,8 @@
 import '../../customcss/questions.css';
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
-import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import { axiosReq } from '../../api/axiosDefaults';
 
 
 function NewQuestionForm() {
@@ -31,7 +31,7 @@ function NewQuestionForm() {
       formData.append("question", question);
   
       try {
-        await axios.post("https://stack-drf-api.herokuapp.com/questions/", formData)
+        await axiosReq.post("https://stack-drf-api.herokuapp.com/questions/", formData)
         .then(history(0));
       } catch (err) {
         console.log(err);

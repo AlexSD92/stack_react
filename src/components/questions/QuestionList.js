@@ -5,7 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import NewQuestionForm from './NewQuestionForm';
 import WarningMessage from '../messages/WarningMessage';
-import axios from 'axios';
+import { axiosReq } from '../../api/axiosDefaults';
 
 
 function QuestionList() {
@@ -13,7 +13,7 @@ function QuestionList() {
     const [questions, setQuestions] = useState([])
 
     useEffect(() => {
-        axios.get('https://stack-drf-api.herokuapp.com/questions/').then((response) => {
+        axiosReq.get('https://stack-drf-api.herokuapp.com/questions/').then((response) => {
             setQuestions(response.data);
         });
     }, []);

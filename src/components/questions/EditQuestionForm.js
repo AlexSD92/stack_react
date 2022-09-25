@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Form, Button, Row, Col, Alert } from "react-bootstrap";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import axios from "axios";
+import { axiosReq } from '../../api/axiosDefaults';
 
 
 function EditQuestionForm() {
@@ -21,7 +21,7 @@ function EditQuestionForm() {
   useEffect(() => {
     const handleMount = async () => {
         try {
-            const { data } = await axios.get(`https://stack-drf-api.herokuapp.com/questions/${params.id}`);
+            const { data } = await axiosReq.get(`https://stack-drf-api.herokuapp.com/questions/${params.id}`);
             const { summary, question } = data;
             setQuestionData({ summary, question })
         } catch (err) {
@@ -49,7 +49,7 @@ function EditQuestionForm() {
       formData.append("question", question);
       
       try {
-        await axios.put(`https://stack-drf-api.herokuapp.com/questions/${params.id}`, formData)
+        await axiosReq.put(`https://stack-drf-api.herokuapp.com/questions/${params.id}`, formData)
         .then(history(`/questions/${params.id}`));        
       } catch (err) {
         if (err.response?.status !== 401) {
@@ -135,7 +135,7 @@ function EditQuestionForm() {
 
         <Row>
           <Col><Button variant='success' type="submit">Submit</Button></Col>
-          <Col><Button variant='danger'><Link className='unstylelinkbutton m-0' to={`/questions/${params.id}/delete`}>Delete</Link></Button></Col>
+          <Col><Link className='unstylelinkbutton m-0' to={`/questions/${params.id}/delete`}><Button variant='danger'>Delete</Button></Link></Col>
         </Row>
 
       </Form>

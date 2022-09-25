@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Container, Button } from 'react-bootstrap'
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import axios from 'axios';
+import { axiosReq } from '../../api/axiosDefaults';
 
 
 function QuestionDetail() {
@@ -13,7 +13,7 @@ function QuestionDetail() {
     const [questions, setQuestions] = useState([])
 
     useEffect(() => {
-      axios.get(`https://stack-drf-api.herokuapp.com/questions/${params.id}`).then((response) => {
+      axiosReq.get(`https://stack-drf-api.herokuapp.com/questions/${params.id}`).then((response) => {
         setQuestions(response.data);
       });
     }, [params]);
@@ -39,7 +39,7 @@ function QuestionDetail() {
             </div>
 
             {currentUser && currentUser.username === questions.owner ?  
-                <Button><Link className='unstylelinkbutton' to={`/questions/${questions.id}/edit`}>Edit</Link></Button>    
+                <Link className='unstylelinkbutton' to={`/questions/${questions.id}/edit`}><Button>Edit</Button></Link>    
                 : 
                 null
             }

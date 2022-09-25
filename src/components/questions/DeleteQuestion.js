@@ -3,7 +3,7 @@ import '../../customcss/questions.css';
 import { Button, Row, Col } from "react-bootstrap";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import axios from "axios";
+import { axiosReq } from '../../api/axiosDefaults';
 
 function DeleteQuestion() {
     const currentUser = useCurrentUser()
@@ -12,7 +12,7 @@ function DeleteQuestion() {
 
     const handleDelete = async() => {
         try {
-          await axios.delete(`https://stack-drf-api.herokuapp.com/questions/${params.id}`)
+          await axiosReq.delete(`https://stack-drf-api.herokuapp.com/questions/${params.id}`)
           .then(history('/questions'));
         } catch (err) {
           console.log(err);
@@ -26,7 +26,7 @@ function DeleteQuestion() {
           <h1>Are you sure you want to delete this question?</h1>
           <br/>
             <Row>
-              <Col><Button variant='success' type="submit"><Link className='unstylelinkbutton m-0' to={`/questions/${params.id}/edit`}>No, take me back to safety!</Link></Button></Col>
+              <Col><Link className='unstylelinkbutton m-0' to={`/questions/${params.id}/edit`}><Button variant='success' type="submit">No, take me back to safety!</Button></Link></Col>
               <Col><Button variant='danger' onClick={handleDelete}>Yes, I'm certain, please continue.</Button></Col>
             </Row>
           </>
