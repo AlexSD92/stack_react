@@ -44,7 +44,7 @@ function ProfileList() {
                                     <h5 className='p-2 badge rounded-pill bg-secondary'>{filteredProfile.updated_at}</h5>
                                 </Col>
                             </Row>  
-                            <Button><Link className='unstyle' to={`/profiles/${filteredProfile.id}`}>Edit</Link></Button>            
+                            <Button><Link className='unstyle' to={`/profiles/${filteredProfile.id}/edit`}>Edit</Link></Button>            
                         </div>
                     </div>
                 )

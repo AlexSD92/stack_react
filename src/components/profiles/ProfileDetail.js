@@ -1,12 +1,13 @@
 import '../../customcss/profiles.css';
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Col, Row } from 'react-bootstrap';
+import { useParams, Link } from 'react-router-dom';
+import { Col, Row, Button } from 'react-bootstrap';
 import axios from 'axios';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
 
 function ProfileDetail() {
-
+    const currentUser = useCurrentUser();
     const params = useParams()
     const [profiles, setProfiles] = useState([])
 
@@ -40,7 +41,12 @@ function ProfileDetail() {
                   <p>Updated on:</p>                  
                   <h5 className='p-2 badge rounded-pill bg-secondary'>{profiles.updated_at}</h5>
               </Col>
-          </Row>               
+          </Row>  
+          {currentUser && currentUser.username === profiles.owner ?  
+                <Button><Link className='unstylelinkbutton' to={`/profiles/${profiles.id}/edit`}>Edit</Link></Button>    
+                : 
+                null
+            }             
         </div>
         )
 }

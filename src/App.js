@@ -11,12 +11,13 @@ import PageNotFound from './components/messages/PageNotFound';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 import MyProfile from './components/profiles/MyProfile';
 import QuestionEditOrDetail from './components/questions/QuestionEditOrDetail';
-import ProfileEditOrDetail from './components/profiles/ProfileEditOrDetail';
 import EditQuestionForm from './components/questions/EditQuestionForm';
+import ProfileDetail from './components/profiles/ProfileDetail';
 import EditAnswerForm from './components/answers/EditAnswerForm';
 import DeleteQuestion from './components/questions/DeleteQuestion';
 import AnswerDetail from './components/answers/AnswerDetail';
 import DeleteAnswer from './components/answers/DeleteAnswer';
+import EditProfileForm from './components/profiles/EditProfileForm';
 
 
 function App() {
@@ -32,7 +33,9 @@ function App() {
       <Route path="/answers/:question_id/:id/edit" element={<EditAnswerForm />} />
       <Route path="/answers/:question_id/:id/delete" element={<DeleteAnswer />} />
       <Route path="/profiles" element={<ProfileList />} />
-      <Route path="/profiles/:id" element={<ProfileEditOrDetail />} />
+      <Route path="/profiles/:id" element={<ProfileDetail />} />
+      <Route path="/profiles/:id/edit" element={<EditProfileForm />} />
+
       <Route path="/myprofile" element={!currentUser ? <Navigate to='/login' /> : <MyProfile />} />
     </>
   )

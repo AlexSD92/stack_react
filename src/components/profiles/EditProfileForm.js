@@ -40,19 +40,23 @@ function EditProfileForm(props) {
   };
 
   const handleSubmit = async (event) => {
-    if (customError) event.preventDefault();
-    const formData = new FormData();
-
-    formData.append("name", name);
-    formData.append("bio", bio);
-
-    try {
-      await axios.put(`https://stack-drf-api.herokuapp.com/profiles/${params.id}`, formData);
-      } catch (err) {
-        if (err.response?.status !== 401) {
-            setErrors(err.response?.data);
-        }
-    }
+    if (customError) {
+      event.preventDefault();
+    } else {
+      const formData = new FormData();
+  
+      formData.append("name", name);
+      formData.append("bio", bio);
+  
+      try {
+        await axios.put(`https://stack-drf-api.herokuapp.com/profiles/${params.id}`, formData)
+        .then(history('/myprofile'));
+        } catch (err) {
+          if (err.response?.status !== 401) {
+              setErrors(err.response?.data);
+          }
+      }
+    } 
   };
 
   return(
@@ -81,6 +85,8 @@ function EditProfileForm(props) {
         <Form.Group>
           <Form.Label>Bio</Form.Label>
           <Form.Control 
+            as='textarea'
+            rows={5}
             type="text"
             name="bio"
             value={bio}
