@@ -1,12 +1,14 @@
 import '../../customcss/questions.css';
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Container } from 'react-bootstrap'
+import { useParams, Link } from 'react-router-dom';
+import { Container, Button } from 'react-bootstrap'
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import axios from 'axios';
 
 
 function QuestionDetail() {
+  const currentUser = useCurrentUser();
     const params = useParams()
     const [questions, setQuestions] = useState([])
 
@@ -35,6 +37,12 @@ function QuestionDetail() {
               <p><strong>{questions.owner}</strong> last updated this question on <strong>{questions.updated_at}</strong></p>
                           
             </div>
+
+            {currentUser && currentUser.username === questions.owner ?  
+                <Button><Link className='unstyle' to={`/questions/${questions.id}/edit`}>Edit</Link></Button>    
+                : 
+                null
+            }
             
           <br/><br/><hr/><br/><br/>
       

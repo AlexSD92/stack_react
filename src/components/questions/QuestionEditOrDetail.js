@@ -2,7 +2,6 @@ import '../../customcss/questions.css';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import EditQuestionForm from './EditQuestionForm';
 import QuestionDetail from './QuestionDetail';
 import NewAnswerForm from '../answers/NewAnswerForm';
 import AnswerList from '../answers/AnswerList';
@@ -26,10 +25,7 @@ function QuestionEditOrDetail() {
     return (
         <div>
 
-            {currentUser && currentUser.username === questions.owner ?  
-                <EditQuestionForm /> : 
-                <QuestionDetail />
-            }
+            <QuestionDetail />
 
             {currentUser ?
                 <NewAnswerForm /> :

@@ -1,12 +1,14 @@
 import '../../customcss/questions.css';
 import React, { useState, useEffect } from "react";
 import { Form, Button, Row, Col, Alert } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import axios from "axios";
 
 
 function EditQuestionForm() {
   let customError = '';
+  const currentUser = useCurrentUser();
   const [errors, setErrors] = useState({});
   const [questionData, setQuestionData] = useState({
     summary: "",
@@ -52,30 +54,48 @@ function EditQuestionForm() {
 
     formData.append("summary", summary);
     formData.append("question", question);
-
+    
     try {
       await axios.put(`https://stack-drf-api.herokuapp.com/questions/${params.id}`, formData);
-      } catch (err) {
-        if (err.response?.status !== 401) {
-            setErrors(err.response?.data);
-        }
+    } catch (err) {
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
     }
   };
-
+  
   return(
     <div className='mt-5 parentdivmargin'>
+      {!currentUser ? customError = <Alert variant='danger'>You aren't authorised to edit this question</Alert> : null }
       <h1>Edit your question.</h1>
       <br/>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
-          <Form.Label>Summary</Form.Label>
-          <Form.Control 
-            required
-            type="text"
-            name="summary"
-            value={summary}
-            onChange={handleChange}
-          />
+          {!currentUser ?
+            <>
+              <Form.Label>Summary</Form.Label>
+              <Form.Control 
+              disabled
+              required
+              type="text"
+              name="summary"
+              value={summary}
+              onChange={handleChange}
+            />
+            </>
+            :
+            <>
+              <Form.Label>Summary</Form.Label>
+              <Form.Control 
+              required
+              type="text"
+              name="summary"
+              value={summary}
+              onChange={handleChange}
+            />   
+            </>       
+          }
+
         </Form.Group>
         {summary.length === 0 ? customError = <Alert variant='warning'>You can't leave this field empty, please resolve or you will be unable to submit</Alert> : null}
         {summary.length > 100 ? customError = <Alert variant='warning'>Summary must be less than 100 characters, please resolve or you will be unable to submit</Alert> : null}
@@ -83,8 +103,24 @@ function EditQuestionForm() {
         <br/>
 
         <Form.Group>
-          <Form.Label>Question</Form.Label>
-          <Form.Control 
+        {!currentUser ?
+          <>
+            <Form.Label>Question</Form.Label>
+            <Form.Control 
+            as='textarea'
+            rows='4'
+            disabled
+            required
+            type="text"
+            name="question"
+            value={question}
+            onChange={handleChange}
+            />  
+          </>
+          :
+          <>
+            <Form.Label>Question</Form.Label>
+            <Form.Control 
             as='textarea'
             rows='4'
             required
@@ -92,17 +128,21 @@ function EditQuestionForm() {
             name="question"
             value={question}
             onChange={handleChange}
-          />
+            />  
+            </>       
+        }
         </Form.Group>
         {question.length === 0 ? customError = <Alert variant='warning'>You can't leave this field empty, please resolve or you will be unable to submit</Alert> : null}
         {console.log(errors)}
 
         <br/>
+        
 
         <Row>
           <Col><Button variant='success' type="submit">Submit</Button></Col>
-          <Col><Button variant='danger' onClick={handleDelete}>Delete</Button></Col>
+          <Col><Button variant='danger'><Link className='unstyle m-0' to={`/questions/${question.id}/delete`}>Delete</Link></Button></Col>
         </Row>
+
       </Form>
 
       <br/><br/><hr/><br/><br/>
