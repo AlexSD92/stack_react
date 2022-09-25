@@ -39,15 +39,6 @@ function EditQuestionForm() {
     });
   };
 
-  const handleDelete = async() => {
-    try {
-      await axios.delete(`https://stack-drf-api.herokuapp.com/questions/${params.id}`)
-      history('/questions/');
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const handleSubmit = async (event) => {
     if (customError) event.preventDefault();
     const formData = new FormData();
@@ -140,7 +131,7 @@ function EditQuestionForm() {
 
         <Row>
           <Col><Button variant='success' type="submit">Submit</Button></Col>
-          <Col><Button variant='danger'><Link className='unstyle m-0' to={`/questions/${params.id}/delete`}>Delete</Link></Button></Col>
+          <Col><Button variant='danger'><Link className='unstylelinkbutton m-0' to={`/questions/${params.id}/delete`}>Delete</Link></Button></Col>
         </Row>
 
       </Form>
