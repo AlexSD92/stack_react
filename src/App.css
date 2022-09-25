@@ -65,3 +65,8 @@ p, li {
 .signature {
   font-family: 'Indie Flower', cursive;
 }
+
+.unstylenavlink {
+  text-decoration: none;
+  color: black;
+}
