@@ -2,7 +2,7 @@ import '../../customcss/answers.css';
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
+import { axiosReq } from '../../api/axiosDefaults';
 
 
 function NewAnswerForm() {
@@ -28,7 +28,7 @@ function NewAnswerForm() {
     formData.append("question", params.id);
 
     try {
-      await axios.post("https://stack-drf-api.herokuapp.com/answers/", formData)
+      await axiosReq.post("https://stack-drf-api.herokuapp.com/answers/", formData)
       .then(history(`/questions/${params.id}`));
     } catch (err) {
       console.log(err);

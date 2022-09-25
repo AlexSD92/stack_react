@@ -2,14 +2,14 @@ import '../../customcss/answers.css';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
-import axios from 'axios';
+import { axiosReq } from '../../api/axiosDefaults';
 
 
 function AnswerList(props) {
     const [answers, setAnswers] = useState([])
 
     useEffect(() => {
-        axios.get('https://stack-drf-api.herokuapp.com/answers/').then((response) => {
+        axiosReq.get('https://stack-drf-api.herokuapp.com/answers/').then((response) => {
             setAnswers(response.data);
         });
     }, []);
