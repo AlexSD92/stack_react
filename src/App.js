@@ -11,11 +11,11 @@ import PageNotFound from './components/messages/PageNotFound';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 import MyProfile from './components/profiles/MyProfile';
 import QuestionEditOrDetail from './components/questions/QuestionEditOrDetail';
-import AnswerEditOrDetail from './components/answers/AnswerEditOrDetail';
 import ProfileEditOrDetail from './components/profiles/ProfileEditOrDetail';
 import EditQuestionForm from './components/questions/EditQuestionForm';
 import EditAnswerForm from './components/answers/EditAnswerForm';
 import DeleteQuestion from './components/questions/DeleteQuestion';
+import AnswerDetail from './components/answers/AnswerDetail';
 
 
 function App() {
@@ -27,8 +27,8 @@ function App() {
       <Route path="/questions/:id" element={<QuestionEditOrDetail />} />
       <Route path="/questions/:id/edit" element={<EditQuestionForm />} />
       <Route path="/questions/:id/delete" element={<DeleteQuestion />} />
-      <Route path="/answers/:id" element={<AnswerEditOrDetail />} />
-      <Route path="/answers/:id/edit" element={!currentUser ? <Navigate to='/login' /> : <EditAnswerForm />} />
+      <Route path="/answers/:id" element={<AnswerDetail />} />
+      <Route path="/answers/:question_id/:id/edit" element={<EditAnswerForm />} />
       <Route path="/profiles" element={<ProfileList />} />
       <Route path="/profiles/:id" element={<ProfileEditOrDetail />} />
       <Route path="/myprofile" element={!currentUser ? <Navigate to='/login' /> : <MyProfile />} />
