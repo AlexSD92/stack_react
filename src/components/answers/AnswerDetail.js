@@ -33,7 +33,7 @@ function AnswerDetail() {
               <p><strong>{answers.owner}</strong> last updated this question on <strong>{answers.updated_at}</strong></p>
           </div>   
           {currentUser && currentUser.username === answers.owner ?
-            <Link className='unstylelinkbutton' to={`/answers/${answers.question_id}/${answers.id}/edit`}><Button>Edit</Button></Link>    
+            <Link className='unstylelinkbutton' to={`/answers/${answers.question_id}/${answers.id}/edit/${answers.owner}`}><Button>Edit</Button></Link>    
             : 
             null
             }             

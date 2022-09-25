@@ -2,7 +2,6 @@ import '../../customcss/authentication.css'
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Button, Col, Row, Container, Alert, } from "react-bootstrap";
-import axios from "axios";
 import { axiosReq } from '../../api/axiosDefaults';
 
 const Register = () => {

@@ -116,7 +116,7 @@ function EditAnswerForm() {
 
         <Row>
           <Col md={6}><Button variant='success' type="submit">Submit</Button></Col>
-          <Col md={6}><Link className='unstylelinkbutton m-0' to={`/answers/${params.question_id}/${params.id}/delete`}><Button variant='danger'>Delete</Button></Link></Col>
+          <Col md={6}><Link className='unstylelinkbutton m-0' to={`/answers/${params.question_id}/${params.id}/delete/${params.owner}`}><Button variant='danger'>Delete</Button></Link></Col>
         </Row>
       </Form>
 

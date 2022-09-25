@@ -39,7 +39,7 @@ function QuestionDetail() {
             </div>
 
             {currentUser && currentUser.username === questions.owner ?  
-                <Link className='unstylelinkbutton' to={`/questions/${questions.id}/edit`}><Button>Edit</Button></Link>    
+                <Link className='unstylelinkbutton' to={`/questions/${questions.id}/edit/${questions.owner}`}><Button>Edit</Button></Link>    
                 : 
                 null
             }

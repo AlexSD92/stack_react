@@ -27,11 +27,11 @@ function App() {
     <>
       <Route path="/questions" element={<QuestionList />} />
       <Route path="/questions/:id" element={<QuestionEditOrDetail />} />
-      <Route path="/questions/:id/edit" element={<EditQuestionForm />} />
-      <Route path="/questions/:id/delete" element={<DeleteQuestion />} />
+      <Route path="/questions/:id/edit/:owner" element={<EditQuestionForm />} />
+      <Route path="/questions/:id/delete/:owner" element={<DeleteQuestion />} />
       <Route path="/answers/:id" element={<AnswerDetail />} />
-      <Route path="/answers/:question_id/:id/edit" element={<EditAnswerForm />} />
-      <Route path="/answers/:question_id/:id/delete" element={<DeleteAnswer />} />
+      <Route path="/answers/:question_id/:id/edit/:owner" element={<EditAnswerForm />} />
+      <Route path="/answers/:question_id/:id/delete/:owner" element={<DeleteAnswer />} />
       <Route path="/profiles" element={<ProfileList />} />
       <Route path="/profiles/:id" element={<ProfileDetail />} />
       <Route path="/profiles/:id/edit" element={<EditProfileForm />} />
