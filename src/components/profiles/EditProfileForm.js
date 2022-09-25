@@ -54,6 +54,7 @@ function EditProfileForm(props) {
         } catch (err) {
           if (err.response?.status !== 401) {
               setErrors(err.response?.data);
+              console.log(errors)
           }
       }
     } 
@@ -77,8 +78,6 @@ function EditProfileForm(props) {
           />
         </Form.Group>
         {name.length > 100 ? customError = <Alert variant='warning'>Summary must be less than 100 characters, please resolve or you will be unable to submit</Alert> : null}
-        {console.log(errors)}
-        {console.log(customError)}
 
         <br/>
 
@@ -92,8 +91,7 @@ function EditProfileForm(props) {
             value={bio}
             onChange={handleChange}
           />
-        </Form.Group>
-        {console.log(errors)}
+        </Form.Group>        
 
         <br/>
         
