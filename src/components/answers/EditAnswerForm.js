@@ -1,11 +1,12 @@
 import '../../customcss/answers.css';
 import React, { useState, useEffect } from "react";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Button, Row, Col, Alert } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 
 function EditAnswerForm(props) {
+  let customError = '';
   const question = props.answers.question_id;
   const [errors, setErrors] = useState({});
   const [answerData, setAnswerData] = useState({
@@ -84,7 +85,9 @@ function EditAnswerForm(props) {
             onChange={handleChange}
           />
         </Form.Group>
+        {answer.length === 0 ? customError = <Alert variant='warning'>You can't leave this field empty, please resolve or you will be unable to submit</Alert> : null}
         {console.log(errors)}
+        {console.log(customError)}
 
         <br/>
 

@@ -79,6 +79,7 @@ function EditQuestionForm() {
           />
         </Form.Group>
         {summary.length === 0 ? customError = <Alert variant='warning'>You can't leave this field empty, please resolve or you will be unable to submit</Alert> : null}
+        {summary.length > 100 ? customError = <Alert variant='warning'>Summary must be less than 100 characters, please resolve or you will be unable to submit</Alert> : null}
         {console.log(errors)}
         <br/>
 

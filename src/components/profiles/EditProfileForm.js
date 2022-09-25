@@ -1,11 +1,12 @@
 import '../../customcss/profiles.css';
 import React, { useState, useEffect } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 
 function EditProfileForm(props) {
+  let customError = '';
   const [errors, setErrors] = useState({});
   const [profileData, setProfileData] = useState({
     name: "",
@@ -71,7 +72,9 @@ function EditProfileForm(props) {
             onChange={handleChange}
           />
         </Form.Group>
+        {name.length > 100 ? customError = <Alert variant='warning'>Summary must be less than 100 characters, please resolve or you will be unable to submit</Alert> : null}
         {console.log(errors)}
+        {console.log(customError)}
 
         <br/>
 
