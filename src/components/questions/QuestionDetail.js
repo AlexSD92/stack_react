@@ -40,9 +40,10 @@ function QuestionDetail() {
 
             {currentUser && currentUser.username === questions.owner ?  
                 <>
-                  <Link className='unstylelinkbutton' to={`/questions/${questions.id}/edit/${questions.owner}`}><Button>Edit</Button></Link>    
-                  <Link className='unstylelinkbutton' to={`/questions/${questions.id}/add/${questions.owner}`}><Button>Add Answer</Button></Link>    
-                </>
+                  <Link className='unstylelinkbutton' to={`/questions/${questions.id}/edit/${questions.owner}`}><Button>Edit</Button></Link> 
+                  <br/><br/>   
+                  <Link className='unstylelinkbutton' to={`/questions/${questions.id}/add/${questions.owner}`}><Button variant='success'>Add Answer</Button></Link>
+                </>    
                 : 
                 null
             }
