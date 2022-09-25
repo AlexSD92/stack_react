@@ -43,21 +43,23 @@ function EditAnswerForm() {
   };
 
   const handleSubmit = async (event) => {
-    if (customError) event.preventDefault();
-    event.preventDefault();
-
-    const formData = new FormData();
-
-    formData.append("question", question);
-    formData.append("answer", answer);
-
-    try {
-      await axios.put(`https://stack-drf-api.herokuapp.com/answers/${params.id}`, formData);
-      history(-1)
-    } catch (err) {
-        if (err.response?.status !== 401) {
-            setErrors(err.response?.data);
-        }
+    if (customError) {
+      event.preventDefault();
+    } else {
+      const formData = new FormData();
+  
+      formData.append("question", question);
+      formData.append("answer", answer);
+  
+      try {
+        await axios.put(`https://stack-drf-api.herokuapp.com/answers/${params.id}`, formData)
+        .then(history(`/answers/${params.id}`));
+        
+      } catch (err) {
+          if (err.response?.status !== 401) {
+              setErrors(err.response?.data);
+          }
+      }
     }
   };
 

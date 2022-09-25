@@ -28,8 +28,8 @@ function NewAnswerForm() {
     formData.append("question", params.id);
 
     try {
-      await axios.post("https://stack-drf-api.herokuapp.com/answers/", formData);
-      history(`/questions/${params.id}`);
+      await axios.post("https://stack-drf-api.herokuapp.com/answers/", formData)
+      .then(history(`/questions/${params.id}`));
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
