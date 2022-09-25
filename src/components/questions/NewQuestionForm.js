@@ -59,12 +59,7 @@ function NewQuestionForm() {
           />
         </Form.Group>
         {summary.length > 100 ? customError = <Alert variant='warning'>Summary must be less than 100 characters, please resolve or you will be unable to submit</Alert> : null}
-        {}
-        {errors.summary?.map((message, idx) => (
-              <Alert key={idx} variant="warning">
-                {message}
-              </Alert>
-            ))}
+        {console.log(errors)}
         
         <br/>
 
@@ -80,11 +75,7 @@ function NewQuestionForm() {
             onChange={handleChange}
           />
         </Form.Group>
-        {errors.summary?.map((message, idx) => (
-              <Alert key={idx} variant="warning">
-                {message}
-              </Alert>
-            ))}
+        {console.log(errors)}
           
         <br/>
 
