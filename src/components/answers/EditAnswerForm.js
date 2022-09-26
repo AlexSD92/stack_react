@@ -46,6 +46,7 @@ function EditAnswerForm() {
     if (customError) {
       event.preventDefault();
     } else {
+      event.preventDefault(); 
       const formData = new FormData();
   
       formData.append("question", question);

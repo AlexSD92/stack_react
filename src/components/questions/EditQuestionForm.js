@@ -43,6 +43,7 @@ function EditQuestionForm() {
     if (customError) {
       event.preventDefault();
     } else {
+      event.preventDefault();
       const formData = new FormData();
   
       formData.append("summary", summary);

@@ -43,6 +43,7 @@ function EditProfileForm(props) {
     if (customError) {
       event.preventDefault();
     } else {
+      event.preventDefault();
       const formData = new FormData();
   
       formData.append("name", name);
