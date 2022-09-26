@@ -26,13 +26,15 @@ function ProfileDetail() {
                   <h3>{profiles.owner}</h3>
                   {profiles.bio ?
                       <p>{profiles.bio}</p> :
-                      <p>{profiles.owner} hasn't added a bio yet. <br/>
-                          To add a bio you must:
-                          <ol>
-                              <li>Log in to your account.</li>
-                              <li>Click your username at the top right of the page</li>
-                          </ol>
-                      </p>
+                        <>
+                        <p>{profiles.owner} hasn't added a bio yet.</p>
+                        <br/>
+                            To add a bio you must:
+                            <ol>
+                                <li>Log in to your account.</li>
+                                <li>Click your username at the top right of the page</li>
+                            </ol>
+                        </>                      
                       } 
               </Col>
               <Col>
