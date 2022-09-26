@@ -3,11 +3,13 @@
 
 ##### This project was developed for the fifth project with the Code Institute and the Full Stack Development Course. 
 
-### [Click here to view the deployed front end app.](https://stack-react.herokuapp.com/)
-### [Click here to view the deployed back end app.](https://stack-drf-api.herokuapp.com/)
+##### [Click here to view the deployed front end app.](https://stack-react.herokuapp.com/)
+##### [Click here to view the deployed back end app.](https://stack-drf-api.herokuapp.com/)
 
-### [Click here to view the repository for the front end of the application.](https://github.com/AlexSD92/stack_react)
-### [Click here to view the repository for the back end of the application.](https://github.com/AlexSD92/stack_drf_api)
+##### [Click here to view the repository for the front end of the application.](https://github.com/AlexSD92/stack_react)
+##### [Click here to view the repository for the back end of the application.](https://github.com/AlexSD92/stack_drf_api)
+
+<br/>
 
 # Table of Contents:
 
@@ -17,7 +19,7 @@
     2. [User Stories](#user-stories)
     3. [Strategy](#strategy)
     4. [Scope](#scope)
-        - [Components](#components)
+        1. [Components](#components)
     5. [Skeleton](#skeleton)
     6. [Surface](#surface)
         1. [Typography](#typography)
@@ -28,16 +30,24 @@
 4. [Technologies](#technologies)
     1. [Languages](#languages)
     2. [Frameworks](#frameworks)
-    3. [Other Technologies and Libraries] (#other-technologies-and-libraries)
+    3. [Other Technologies and Libraries](#other-technologies-and-libraries)
 5. [Testing and Development](#testing-and-development)
+    1. [Frontend](#frontend)
+    2. [Backend](#backend)
+    3. [Bugs](#bugs)
 6. [Deployment](#deployment)
     1. [Cloning and Forking the GitHub Repository](#cloning-and-forking-the-github-repository)
     2. [Local Deployment](#local-deployment)
     3. [Remote Deployment](#remote-deployment)
 7. [Credits](#credits)
 
+<br/>
 
 # Why
+
+Create an application where users can post questions and answers.
+
+<br/>
 
 # User Experience
 
@@ -128,6 +138,8 @@ The following were used from Google Fonts:
 - font-family: 'Roboto Slab', serif: for headings
 - font-family: 'Source Sans Pro', sans-serif: for all other text
 
+<br/>
+
 # Features
 
 ### Current Features
@@ -152,6 +164,9 @@ The following were used from Google Fonts:
 - Search feature
 - Filter feature
 - Profile images
+- Breadcrumbs
+
+<br/>
 
 # Technologies
 ### Languages
@@ -188,20 +203,25 @@ The following were used from Google Fonts:
 - [Django Allauth](https://django-allauth.readthedocs.io/)
 - [Django CORS Headers](https://pypi.org/project/django-cors-headers/)
 
+<br/>
+
 # Testing and Development
 
 ### Frontend
 
-Test | Desired Functionality | Working As Intended (Y / N)
+Test | Steps | Working As Intended (Y / N)
 --- | --- | :---:
-Log In | Incorrect input results in an error message. Correct input logs the user in | Yes
-Register | Accounts cannot be created with existing usernames. Successful registration results in message telling user to contact administrator | Yes
-Log Out | When a user clicks log out, they are redirected to the log out page and must log in again | Yes
-URLs | All URLs work as intended and redirect users to correct pages | Yes
+Log In | 1. User clicks log in on the nav bar. <br/> 2. User inputs a valid username in the username field. <br/> 3. User inputs a valid password in the password. <br/> 4. User clicks log in. <br/> 5. User is redirected to the home page. | Yes
+Register | 1. User clicks register on the nav bar. <br/> 2. User inputs a unique and valid username in the username field. <br/> 3. User inputs a unique and valid email in the email field. <br/> 4. User inputs a valid password in the password1 field. <br/> 5. User confirms the password from the password1 field in the password2 field. <br/> 6. User clicks register. <br/> 7. User is redirected to the log in page. | Yes
+Log Out | 1. User is authenticated. <br/> 2. User clicks log out on the nav bar. <br/> 3. User is redirected to the log in page. | Yes
+New Question | 1. User is authenticated. <br/> 2. User clicks questions on the nav bar and is directed to the question list page. <br/> 3. User clicks on add question and is redirected to the add a new question page. <br/> 4. User inputs a valid summary. <br/> 5. User inputs a valid question. <br/> 6. User clicks submit and is redirected to the question list page where they can view their newly posted question. | Yes
+Edit or Delete Question | 1. User is authenticated <br/> 2. User clicks questions on the nav bar and is directed to the question list page. <br/> 3. User clicks on an existing question that they are an auther of and is redirected to the detail view of that question. <br/> 4. User clicks on edit and is redirected to the edit view where they are given the option between submitting an edit or deleting the question. <br/> 6. User edits summary and question fields and clicks submit and is redirected to the detail view for that question. <br/> 7. If user clicks delete, they are redirected to the delete page where they are asked to confirm whether they really want to delete the question or return to safety. <br/> 8. Clicking return to safety brings the user back to the edit view. <br/> 9. Clicking delete deletes the question and brings the user to the question list page.
+New Answer | 1. User is authenticated. <br/> 2. User clicks questions on the nav bar and is directed to the question list page. <br/> 3. User clicks on an existing question and they are redirected to the detail view for that question. <br/> 4. User clicks on add answer and they are directed to the new answer page. <br/> 5. User adds their answer content to the answer field and clicks submit, they are then redirected to the question detail view. | Yes
+Edit or Delete Answer | 1. User is authenticated. <br/> 2. User clicks questions on the nav bar and is directed to the question list page. <br/> 3. User clicks on an existing question and they are redirected to the detail view for that question. <br/> 4. User clicks on an answer within the question detail view page that they are an author of and they are redirected to the detail view for that answer. <br/> 5. User clicks on edit and they are brought to the edit view for that answer where they are given the choice to submit the edit or delete. <br/> 6. User updates the answer and clicks submit where they are redirected to the answer detail view. <br/> 7. If the user clicks delete, they are redirected to the delete page where they are asked to confirm whether they really want to delete the answer or return to safety. <br/> 8. Clicking return to safety brings the user back to the edit view. <br/> 9. Clicking delete deletes the answer and brings the user back to the question detail page. | Yes
+Edit Profile | 1. User is authenticated. <br/> 2. User either finds their profile in the listview or clicks on their username in the navbar where they are brought to a detail view of their profile. <br/> 3. User clicks edit within the detail view and they are brought to the edit view for their profile. <br/> 4. User inputs valid data and clicks submit and they are redirected back to the detail view. | Yes
 CRUD | Create, update and delete functionality in place across accounts, contacts and opportunities | Yes
-Profile | Profile is accessible and users can update their name and bio | Yes
 Responsiveness | All components collapse into mobile view | Yes
-Authentication | Users must be logged in to post new questions and answers | Yes
+Authentication | Users must be logged in to post new questions and answers. Error messages are displayed otherwise. | Yes
 Authorisation | Users must be logged in to edit and delete their own questions and answers | Yes
 Authorisation | Users are unable to edit or delete other user questions and answers | Yes
 
@@ -219,6 +239,20 @@ Responsiveness | All components collapse into mobile view | Yes
 Authentication | Users must be logged in to post new questions and answers | Yes
 Authorisation | Users must be logged in to edit and delete their own questions and answers | Yes
 Authorisation | Users are unable to edit or delete other user questions and answers | Yes
+
+### Bugs
+
+- EditQuestionForm and AnswerQuestionForm successfully PUSH to the API, but upon navigating back to the QuestionDetail component or AnswerDetail component, they do not always GET the updated question or answer and they require and additional page refresh.
+
+- Throughout the application, when a user is authenticated, warning messages appear for a split second as pages load. This is due to the way the application is designed whereby pages that require authentication check for user presence before displaying any content.
+
+- Very rarely, when a user is not authenticated and is viewing unprotected content, the application directs the unauthenticated user to the log in page. This typically happens during a refresh and it isn't very clear why this is happening.
+
+- Within components that have nested components that make multiple GET, PUT or PUSH requests to the API, the application apparently submits data and there are no errors, but data isn't submitted. This rarely happens.
+
+- While the edit views are loading data and the forms are empty, the alerts appear handling exceptions stating that the forms cannot be lefting. Once the forms load, the alerts disappear. 
+
+<br/>
 
 # Deployment
 ### Cloning and Forking the GitHub Repository
@@ -390,6 +424,8 @@ In order to clone the repository, you must:
 35. Wait for Heroku to build your app and then open your app.
 36. You should view the following message 'The install worked successfully! Congratulations!'. 
 
+<br/>
+
 # Credits
 1. [The Django Documentation](https://docs.djangoproject.com/en/4.0/)
     - For the details of how django works.
@@ -404,3 +440,5 @@ In order to clone the repository, you must:
 
 5. [Code Institute](https://codeinstitute.net/)
     - For their learning platform and support. 
+    - Their code on axiosDefaults.js and creating user context.
+    - Their examples on forms and handling user interactions.
