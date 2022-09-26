@@ -146,25 +146,44 @@ The following were used from Google Fonts:
 - Log in/out
     - Log in will be a standard form requiring a username and password field, as well as a button to submit the form.
     - Log out will appear as a link to authenticated users within the navbar.
+    ![login](assets/features/login.jpg "login")
+<br/><br/>
 - Register for an account
     - Register will be a standard form requiring a username, email, password1 and password2 fields, as well as a button to submit the form.
+    ![register](assets/features/register.jpg "register")
+<br/><br/>
 - Post a new question
     - A button will be present for users to be directed to a new question form.
     - The new question form will be a standard form requiring a summary and question field, as well as a button to submit the form.
+    ![new question](assets/features/newquestionform.jpg "new question")
+<br/><br/>
 - Post an answer to a question
     - A button will be present for users to be directed to a new answer form.
     - The new answer form will be a standard form requiring an answer field, as well as a button to submit the form.
+    ![new answer](assets/features/newanswerform.jpg "new answer")
+<br/><br/>
 - Edit an existing question if you are the author
     - A button will be present within the question detail view for users to be directed to an edit question form.
     - The edit question form will be a standard form requiring a summary and question field, as well as a button to submit the form or delete the question.
+    ![edit question](assets/features/questionedit.jpg "edit question")
+<br/><br/>
 - Edit an existing answer if you are the author
     - A button will be present within the answer detail view for users to be directed to an edit answer form.
     - The edit answer form will be a standard form requiring an answer field, as well as a button to submit the form or delete the answer.
+    ![edit answer](assets/features/answeredit.jpg "edit answer")
+<br/><br/>
 - Edit your profile
     - A button will be present within the profile detail view for users to be directed to an edit profile form.
     - The edit profile form will be a standard form requiring a name and bio field, as well as a button to submit the form.
+    ![edit profile](assets/features/profileedit.jpg "edit profile")
+<br/><br/>
 - Question and answer list view
+![question list](assets/features/questionlist.jpg "question list")
+![answer list](assets/features/answerlist.jpg "answer list")
+<br/><br/>
 - Question and answer detail view
+![question detail](assets/features/questiondetail.jpg "question detail")
+![answer detail](assets/features/answerdetail.jpg "answer detail")
  
 ### Future Features
 - Statistics on platform usage
