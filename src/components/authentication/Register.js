@@ -135,7 +135,7 @@ const Register = () => {
           <br/>
 
           <Container>
-            <Link to="/signin">
+            <Link to="/login">
               Already have an account? <span>Sign in</span>
             </Link>
           </Container>
