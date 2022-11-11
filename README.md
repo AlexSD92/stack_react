@@ -44,9 +44,15 @@
 <br/>
  
 # Why
- 
-Create an application where users can post questions and answers.
- 
+
+The purpose of this project is to create a question and answer application. 
+
+The goals within the application are to: 
+- Enable users to interact with one another by posting questions and answers. 
+- Encourage users to learn about other users that they have seen answering or posting questions by giving them the ability to view profiles.
+- Avoid creating an environment that allows users to post questions that are uninfluenced by the website design by producing a minimalist unimposing style.
+- Protect user integrity by implementing authentication and authorisation throughout the application.
+
 <br/>
  
 # User Experience
