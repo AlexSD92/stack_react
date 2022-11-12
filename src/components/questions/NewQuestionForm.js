@@ -8,7 +8,7 @@ import { axiosReq } from '../../api/axiosDefaults';
 
 
 function NewQuestionForm() {
-  const notify = () => toast("wow so easy");
+//   const notify = () => toast("wow so easy");
   let customError = '';
   const [errors, setErrors] = useState({});
   const [questionData, setQuestionData] = useState({
@@ -36,7 +36,12 @@ function NewQuestionForm() {
   
       try {
         await axiosReq.post("https://stack-drf-api.herokuapp.com/questions/", formData)
-        .then(history('/questions'));
+        .then(res => {
+            if (res.status === 200)
+                toast.notify("wow that was easy");
+            history('/questions');
+        })
+        // .then(history('/questions'));
       } catch (err) {
         console.log(err);
         if (err.response?.status !== 401) {
@@ -82,7 +87,7 @@ function NewQuestionForm() {
           
         <br/>
 
-        <Button onClick={notify} variant="success" type="submit">Submit</Button>
+        <Button variant="success" type="submit">Submit</Button>
       </Form>
 
     </div>
