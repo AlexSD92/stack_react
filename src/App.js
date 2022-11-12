@@ -20,6 +20,7 @@ import DeleteAnswer from './components/answers/DeleteAnswer';
 import EditProfileForm from './components/profiles/EditProfileForm';
 import NewAnswerForm from './components/answers/NewAnswerForm';
 import NewQuestionForm from './components/questions/NewQuestionForm';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
             {logInURLs}
             {logOutURLs}
           </Routes>
+          <ToastContainer />
         </div>
   );
 }
