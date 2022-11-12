@@ -2,10 +2,13 @@ import '../../customcss/questions.css';
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { axiosReq } from '../../api/axiosDefaults';
 
 
 function NewQuestionForm() {
+  const notify = () => toast("wow so easy");
   let customError = '';
   const [errors, setErrors] = useState({});
   const [questionData, setQuestionData] = useState({
@@ -79,7 +82,7 @@ function NewQuestionForm() {
           
         <br/>
 
-        <Button variant="success" type="submit">Submit</Button>
+        <Button onClick={notify} variant="success" type="submit">Submit</Button>
       </Form>
 
     </div>
