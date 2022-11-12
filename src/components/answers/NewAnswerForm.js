@@ -4,6 +4,7 @@ import { Form, Button } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { axiosReq } from '../../api/axiosDefaults';
+import { toast } from 'react-toastify';
 
 
 function NewAnswerForm() {
@@ -41,6 +42,7 @@ function NewAnswerForm() {
 
     try {
       await axiosReq.post("https://stack-drf-api.herokuapp.com/answers/", formData)
+      .then(toast.success('Answer successfully submitted!!'))
       .then(history(`/questions/${params.question_id}`));
     } catch (err) {
       console.log(err);

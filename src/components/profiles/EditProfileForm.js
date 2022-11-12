@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { axiosReq } from '../../api/axiosDefaults';
+import { toast } from 'react-toastify';
 
 
 function EditProfileForm(props) {
@@ -51,6 +52,7 @@ function EditProfileForm(props) {
   
       try {
         await axiosReq.put(`https://stack-drf-api.herokuapp.com/profiles/${params.id}`, formData)
+        .then(toast.success('Profile successfully updated!!'))
         .then(history('/myprofile'));
         } catch (err) {
           if (err.response?.status !== 401) {

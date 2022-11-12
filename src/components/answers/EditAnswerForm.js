@@ -4,6 +4,7 @@ import { Form, Button, Row, Col, Alert } from "react-bootstrap";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { axiosReq } from '../../api/axiosDefaults';
+import { toast } from 'react-toastify';
 
 
 function EditAnswerForm() {
@@ -54,6 +55,7 @@ function EditAnswerForm() {
   
       try {
         await axiosReq.put(`https://stack-drf-api.herokuapp.com/answers/${params.id}`, formData)
+        .then(toast.success('Answer successfully updated!!'))
         .then(history(`/answers/${params.id}`));
         
       } catch (err) {

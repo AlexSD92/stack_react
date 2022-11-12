@@ -4,6 +4,7 @@ import { Button, Row, Col } from "react-bootstrap";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { axiosReq } from '../../api/axiosDefaults';
+import { toast } from 'react-toastify';
 
 function DeleteQuestion() {
     const currentUser = useCurrentUser()
@@ -13,6 +14,7 @@ function DeleteQuestion() {
     const handleDelete = async() => {
         try {
           await axiosReq.delete(`https://stack-drf-api.herokuapp.com/questions/${params.id}`)
+          .then(toast.success('Question successfully deleted.'))
           .then(history('/questions'));
         } catch (err) {
           console.log(err);
