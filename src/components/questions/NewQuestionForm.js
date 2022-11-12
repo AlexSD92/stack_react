@@ -2,13 +2,13 @@ import '../../customcss/questions.css';
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { axiosReq } from '../../api/axiosDefaults';
 
 
 function NewQuestionForm() {
-//   const notify = () => toast("wow so easy");
+
   let customError = '';
   const [errors, setErrors] = useState({});
   const [questionData, setQuestionData] = useState({
@@ -29,19 +29,16 @@ function NewQuestionForm() {
     if (customError) {
       event.preventDefault();
     } else {
-      event.preventDefault();
-      const formData = new FormData();  
-      formData.append("summary", summary);
-      formData.append("question", question);
+        event.preventDefault();
+        const formData = new FormData();  
+        formData.append("summary", summary);
+        formData.append("question", question);
   
       try {
         await axiosReq.post("https://stack-drf-api.herokuapp.com/questions/", formData)
-        .then(res => {
-            if (res.status === 200)
-                toast.notify("wow that was easy");
-            history('/questions');
-        })
-        // .then(history('/questions'));
+        .then(toast.success('You question was successfully submitted!'))
+        .then(history('/questions'));
+ 
       } catch (err) {
         console.log(err);
         if (err.response?.status !== 401) {
@@ -88,6 +85,7 @@ function NewQuestionForm() {
         <br/>
 
         <Button variant="success" type="submit">Submit</Button>
+        {/* <ToastContainer /> */}
       </Form>
 
     </div>
