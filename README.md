@@ -14,6 +14,7 @@
 # Table of Contents:
  
 1. [Why](#Why)
+    1. [Project Goals](#project-goals)
 2. [User Experience (UX)](#user-experience-UX)
     1. [Target Audience](#target-audience)
     2. [User Stories](#user-stories)
@@ -47,11 +48,24 @@
 
 The purpose of this project is to create a question and answer application. 
 
-The goals within the application are to: 
+### Project Goals
+
 - Enable users to interact with one another by posting questions and answers. 
+    - Addressed by user stories 7, 8, 9, & 10
+- Protect community integrity by preventing users from editing or deleting other user questions and answers.
+    - Addressed by user stories 11, 12, 13, 14, 15, 16, 17 & 18
+- Protect user integrity through authentication and authorisation.
+    - Adreessed by user stories 1, 2, 3, 4, 5 and 6
+- Provide users a sense of identity and also give them the option to disclose infomration about themselves.
+    - Addressed by user stories 19, 20 & 22
 - Encourage users to learn about other users that they have seen answering or posting questions by giving them the ability to view profiles.
+    - Addressed by user story 21
 - Avoid creating an environment that allows users to post questions that are uninfluenced by the website design by producing a minimalist unimposing style.
-- Protect user integrity by implementing authentication and authorisation throughout the application.
+    - Addressed by user story 23
+- Create a low learning curve to enable a larger demographic to quickly understand how to use the website and participate in the community.
+    - Addressed by user story 23
+- Separation of concerns.
+    - Addressed by user stories 24, 25, 26, 27, 28 and 29
 
 <br/>
  
@@ -66,42 +80,42 @@ This app is aimed at a general audience.
 ### User Stories
  
 ##### Navigation & Authentication
-- As a user, I can register for an account so that I may use the platform.
-- As a user, I can log in to my account so that I may use the platform.
-- As a user, I can log out of my account so that I may end my session.
-- As a user, I am unable to post questions unless I am logged in.
-- As a user, I am unable to post answers unless I am logged in.
-- As a user, I am unable to view my profile unless I am logged in.
+1. As a user, I can register for an account so that I may use the platform.
+2. As a user, I can log in to my account so that I may use the platform.
+3. As a user, I can log out of my account so that I may end my session.
+4. As a user, I am unable to post questions unless I am logged in.
+5. As a user, I am unable to post answers unless I am logged in.
+6. As a user, I am unable to view my profile unless I am logged in.
  
 ##### Questions & Answers
-- As a user, I can post questions so that I may receive answers.
-- As a user, I can update my own questions so that I may correct errors or make them clearer.
-- As a user, I can delete my own questions so that I may remove the questions I no longer need answered.
-- As a user, I can post answers to questions so that I may be helpful to other users.
-- As a user, I can update my own answers so that I may correct errors or make them clearer.
-- As a user, I can delete my own answers so that I may remove answers that are incorrect.
-- As a user, I am unable to update other user questions.
-- As a user, I am unable to delete other user questions.
-- As a user, I am unable to update other users' answers.
-- As a user, I am unable to delete other users' answers.
-- As a user, I can view a list of questions so that I may see what questions have been asked.
-- As a user, I can view a list of answers so that I may see what answers have been given.
+7. As a user, I can post questions so that I may receive answers.
+8. As a user, I can update my own questions so that I may correct errors or make them clearer.
+9. As a user, I can delete my own questions so that I may remove the questions I no longer need answered.
+10. As a user, I can post answers to questions so that I may be helpful to other users.
+11. As a user, I can update my own answers so that I may correct errors or make them clearer.
+12. As a user, I can delete my own answers so that I may remove answers that are incorrect.
+13. As a user, I am unable to update other user questions.
+14. As a user, I am unable to delete other user questions.
+15. As a user, I am unable to update other users' answers.
+16. As a user, I am unable to delete other users' answers.
+17. As a user, I can view a list of questions so that I may see what questions have been asked.
+18. As a user, I can view a list of answers so that I may see what answers have been given.
  
 ##### Profile
-- As a user, I can access my profile so that I may view my information.
-- As a user, I can update my details so that I may keep my information up to date.
-- As a user, I can view other user profiles so I may learn more about them.
-- As a user, I am unable to edit other user profiles.
+19. As a user, I can access my profile so that I may view my information.
+20. As a user, I can update my details so that I may keep my information up to date.
+21. As a user, I can view other user profiles so I may learn more about them.
+22. As a user, I am unable to edit other user profiles.
  
 ### Strategy
  
-- Create a simple question and answer app where users are able to login/out and post questions and answers.
-- Split the frontend and backend to reduce development issue risks, such as breaking the entire website with single lines of code.
-- Split the frontend and backend to facilitate relatively easier debugging.
-- Split the frontend and backend to take advantage of the modularity that both React.js and DJRest have to offer.
-- Split the frontend and backend to be able to drastically edit the UX and UI without needing to change or impact the stability of the business logic or backend.
-- Develop the front end using React.js because of its flexibility and scalability.
-- Develop the backend using DJRest because of its flexibility and scalability.
+23. Create a simple question and answer app where users are able to login/out and post questions and answers.
+24. Split the frontend and backend to reduce development issue risks, such as breaking the entire website with single lines of code.
+25. Split the frontend and backend to facilitate relatively easier debugging.
+26. Split the frontend and backend to take advantage of the modularity that both React.js and DJRest have to offer.
+27. Split the frontend and backend to be able to drastically edit the UX and UI without needing to change or impact the stability of the business logic or backend.
+28. Develop the front end using React.js because of its flexibility and scalability.
+29. Develop the backend using DJRest because of its flexibility and scalability.
  
 ##### Components
  
