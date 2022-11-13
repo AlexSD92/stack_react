@@ -36,7 +36,7 @@ function NewQuestionForm() {
   
       try {
         await axiosReq.post("https://stack-drf-api.herokuapp.com/questions/", formData)
-        .then(toast.success('Question sucessfully deleted!!'))
+        .then(toast.success('Question sucessfully submitted!!'))
         .then(history('/questions'));
  
       } catch (err) {
