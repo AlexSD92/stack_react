@@ -55,8 +55,8 @@ The purpose of this project is to create a question and answer application.
 - Protect community integrity by preventing users from editing or deleting other user questions and answers.
     - Addressed by user stories 11, 12, 13, 14, 15, 16, 17 & 18
 - Protect user integrity through authentication and authorisation.
-    - Adreessed by user stories 1, 2, 3, 4, 5 and 6
-- Provide users a sense of identity and also give them the option to disclose infomration about themselves.
+    - Addressed by user stories 1, 2, 3, 4, 5 and 6
+- Provide users a sense of identity and also give them the option to disclose information about themselves.
     - Addressed by user stories 19, 20 & 22
 - Encourage users to learn about other users that they have seen answering or posting questions by giving them the ability to view profiles.
     - Addressed by user story 21
