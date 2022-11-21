@@ -50,21 +50,21 @@ The purpose of this project is to create a question and answer application.
 
 ### Project Goals
 
-- Enable users to interact with one another by posting questions and answers. 
+1. Enable users to interact with one another by posting questions and answers. 
     - Addressed by user stories 7, 8, 9, & 10
-- Protect community integrity by preventing users from editing or deleting other user questions and answers.
+2. Protect community integrity by preventing users from editing or deleting other user questions and answers.
     - Addressed by user stories 11, 12, 13, 14, 15, 16, 17 & 18
-- Protect user integrity through authentication and authorisation.
+3. Protect user integrity through authentication and authorisation.
     - Addressed by user stories 1, 2, 3, 4, 5 and 6
-- Provide users a sense of identity and also give them the option to disclose information about themselves.
+4. Provide users a sense of identity and also give them the option to disclose information about themselves.
     - Addressed by user stories 19, 20 & 22
-- Encourage users to learn about other users that they have seen answering or posting questions by giving them the ability to view profiles.
+5. Encourage users to learn about other users that they have seen answering or posting questions by giving them the ability to view profiles.
     - Addressed by user story 21
-- Avoid creating an environment that allows users to post questions that are uninfluenced by the website design by producing a minimalist unimposing style.
+6. Avoid creating an environment that allows users to post questions that are uninfluenced by the website design by producing a minimalist unimposing style.
     - Addressed by user story 23
-- Create a low learning curve to enable a larger demographic to quickly understand how to use the website and participate in the community.
+7. Create a low learning curve to enable a larger demographic to quickly understand how to use the website and participate in the community.
     - Addressed by user story 23
-- Separation of concerns.
+8. Separation of concerns.
     - Addressed by user stories 24, 25, 26, 27, 28 and 29
 
 <br/>
@@ -81,23 +81,39 @@ This app is aimed at a general audience.
  
 ##### Navigation & Authentication
 1. As a user, I can register for an account so that I may use the platform.
+![register for an account](assets/readme_images/register_for_account.png)
 2. As a user, I can log in to my account so that I may use the platform.
+![log in to account](assets/readme_images/log_in.png)
 3. As a user, I can log out of my account so that I may end my session.
+![log out of account](assets/readme_images/log_out.png)
 4. As a user, I am unable to post questions unless I am logged in.
+![log in to post questions](assets/readme_images/log_in_to_post_q.png)
 5. As a user, I am unable to post answers unless I am logged in.
-6. As a user, I am unable to view my profile unless I am logged in.
+![log in to post answers](assets/readme_images/log_in_to_post_a.png)
+6. As a user, I am unable to edit my profile unless I am logged in.
+![log in to edit profile](assets/readme_images/log_in_to_edit_p.png)
  
 ##### Questions & Answers
 7. As a user, I can post questions so that I may receive answers.
+![post new question](assets/readme_images/new_question.png)
 8. As a user, I can update my own questions so that I may correct errors or make them clearer.
+![update question](assets/readme_images/edit_question_or_post_answer.png)
 9. As a user, I can delete my own questions so that I may remove the questions I no longer need answered.
+![delete question](assets/readme_images/edit_question_or_post_answer.png)
 10. As a user, I can post answers to questions so that I may be helpful to other users.
+![post new answer](assets/readme_images/post_answer.png)
 11. As a user, I can update my own answers so that I may correct errors or make them clearer.
+![update answer](assets/readme_images/edit_or_delete_answer.png)
 12. As a user, I can delete my own answers so that I may remove answers that are incorrect.
+![update answer](assets/readme_images/edit_or_delete_answer.png)
 13. As a user, I am unable to update other user questions.
+![only owner can edit question](assets/readme_images/only_owner_can_edit_question.png)
 14. As a user, I am unable to delete other user questions.
+![only owner can delete question](assets/readme_images/only_owner_can_edit_question.png)
 15. As a user, I am unable to update other users' answers.
+![only owner can edit answer](assets/readme_images/only_owner_can_edit_answer.png)
 16. As a user, I am unable to delete other users' answers.
+![only owner can delete answer](assets/readme_images/only_owner_can_edit_answer.png)
 17. As a user, I can view a list of questions so that I may see what questions have been asked.
 18. As a user, I can view a list of answers so that I may see what answers have been given.
  
@@ -109,13 +125,13 @@ This app is aimed at a general audience.
  
 ### Strategy
  
-23. Create a simple question and answer app where users are able to login/out and post questions and answers.
-24. Split the frontend and backend to reduce development issue risks, such as breaking the entire website with single lines of code.
-25. Split the frontend and backend to facilitate relatively easier debugging.
-26. Split the frontend and backend to take advantage of the modularity that both React.js and DJRest have to offer.
-27. Split the frontend and backend to be able to drastically edit the UX and UI without needing to change or impact the stability of the business logic or backend.
-28. Develop the front end using React.js because of its flexibility and scalability.
-29. Develop the backend using DJRest because of its flexibility and scalability.
+- Create a simple question and answer app where users are able to login/out and post questions and answers.
+- Split the frontend and backend to reduce development issue risks, such as breaking the entire website with single lines of code.
+- Split the frontend and backend to facilitate relatively easier debugging.
+- Split the frontend and backend to take advantage of the modularity that both React.js and DJRest have to offer.
+- Split the frontend and backend to be able to drastically edit the UX and UI without needing to change or impact the stability of the business logic or backend.
+- Develop the front end using React.js because of its flexibility and scalability.
+- Develop the backend using DJRest because of its flexibility and scalability.
  
 ##### Components
  
