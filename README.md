@@ -283,7 +283,7 @@ Log In | 1. User clicks log in on the nav bar. <br/> 2. User inputs a valid user
 Register | 1. User clicks register on the nav bar. <br/> 2. User inputs a unique and valid username in the username field. <br/> 3. User inputs a unique and valid email in the email field. <br/> 4. User inputs a valid password in the password1 field. <br/> 5. User confirms the password from the password1 field in the password2 field. <br/> 6. User clicks register. <br/> 7. User is redirected to the login page. | Yes
 Log Out | 1. User is authenticated. <br/> 2. User clicks log out on the nav bar. <br/> 3. User is redirected to the login page. | Yes
 New Question | 1. User is authenticated. <br/> 2. User clicks questions on the nav bar and is directed to the question list page. <br/> 3. User clicks on add question and is redirected to the add a new question page. <br/> 4. User inputs a valid summary. <br/> 5. User inputs a valid question. <br/> 6. User clicks submit and is redirected to the question list page where they can view their newly posted question. | Yes
-Edit or Delete Question | 1. User is authenticated <br/> 2. User clicks questions on the nav bar and is directed to the question list page. <br/> 3. User clicks on an existing question that they are an author of and is redirected to the detailed view of that question. <br/> 4. User clicks on edit and is redirected to the edit view where they are given the option between submitting an edit or deleting the question. <br/> 6. User edits summary and question fields and clicks submit and is redirected to the detail view for that question. <br/> 7. If a user clicks delete, they are redirected to the delete page where they are asked to confirm whether they really want to delete the question or return to safety. <br/> 8. Clicking return to safety brings the user back to the edit view. <br/> 9. Clicking delete deletes the question and brings the user to the question list page.
+Edit or Delete Question | 1. User is authenticated <br/> 2. User clicks questions on the nav bar and is directed to the question list page. <br/> 3. User clicks on an existing question that they are an author of and is redirected to the detailed view of that question. <br/> 4. User clicks on edit and is redirected to the edit view where they are given the option between submitting an edit or deleting the question. <br/> 6. User edits summary and question fields and clicks submit and is redirected to the detail view for that question. <br/> 7. If a user clicks delete, they are redirected to the delete page where they are asked to confirm whether they really want to delete the question or return to safety. <br/> 8. Clicking return to safety brings the user back to the edit view. <br/> 9. Clicking delete deletes the question and brings the user to the question list page. | Yes
 New Answer | 1. User is authenticated. <br/> 2. User clicks questions on the nav bar and is directed to the question list page. <br/> 3. Users click on an existing question and they are redirected to the detail view for that question. <br/> 4. User clicks on add answer and they are directed to the new answer page. <br/> 5. Users add their answer content to the answer field and clicks submit, they are then redirected to the question detail view. | Yes
 Edit or Delete Answer | 1. User is authenticated. <br/> 2. User clicks questions on the nav bar and is directed to the question list page. <br/> 3. Users click on an existing question and they are redirected to the detail view for that question. <br/> 4. User clicks on an answer within the question detail view page that they are an author of and they are redirected to the detail view for that answer. <br/> 5. Users click on edit and they are brought to the edit view for that answer where they are given the choice to submit the edit or delete. <br/> 6. User updates the answer and clicks submit where they are redirected to the answer detail view. <br/> 7. If the user clicks delete, they are redirected to the delete page where they are asked to confirm whether they really want to delete the answer or return to safety. <br/> 8. Clicking return to safety brings the user back to the edit view. <br/> 9. Clicking delete deletes the answer and brings the user back to the question detail page. | Yes
 Edit Profile | 1. User is authenticated. <br/> 2. Users either find their profile in the listview or click on their username in the navbar where they are brought to a detailed view of their profile. <br/> 3. Users click edit within the detail view and they are brought to the edit view for their profile. <br/> 4. User inputs valid data and clicks submit and they are redirected back to the detail view. | Yes
@@ -309,16 +309,18 @@ Authorisation | Users must be logged in to edit and delete their own questions a
 Authorisation | Users are unable to edit or delete other user questions and answers | Yes
  
 ### Bugs
- 
-- EditQuestionForm and AnswerQuestionForm successfully PUSH to the API, but upon navigating back to the QuestionDetail component or AnswerDetail component, they do not always GET the updated question or answer and they require an additional page refresh.
- 
-- Throughout the application, when a user is authenticated, warning messages appear for a split second as pages load. This is due to the way the application is designed whereby pages that require authentication check for user presence before displaying any content.
- 
-- Very rarely, when a user is not authenticated and is viewing unprotected content, the application directs the unauthenticated user to the login page. This typically happens during a refresh and it isn't very clear why this is happening.
- 
-- Within components that have nested components that make multiple GET, PUT or PUSH requests to the API, the application apparently submits data and there are no errors, but data isn't submitted. This rarely happens.
+
+- Very rarely, when a user is not authenticated and is viewing unprotected content, the application directs the unauthenticated user to the login page. This typically happens during a refresh and it isn't very clear why this is happening. 
  
 - While the edit views are loading data and the forms are empty, the alerts appear handling exceptions stating that the forms cannot be submitted. Once the forms load, the alerts disappear.
+ 
+- Throughout the application, when a user is authenticated, warning messages appear for a split second as pages load. This is due to the way the application is designed whereby pages that require authentication check for user presence before displaying any content.
+
+##### Resolved Bugs
+
+- EditQuestionForm and AnswerQuestionForm successfully PUSH to the API, but upon navigating back to the QuestionDetail component or AnswerDetail component, they do not always GET the updated question or answer and they require an additional page refresh. 
+ 
+- Within components that have nested components that make multiple GET, PUT or PUSH requests to the API, the application apparently submits data and there are no errors, but data isn't submitted. This rarely happens.
  
 <br/>
  
@@ -510,4 +512,3 @@ In order to clone the repository, you must:
     - For their learning platform and support.
     - Their code on axiosDefaults.js and creating user context.
     - Their examples on forms and handling user interactions.
-
