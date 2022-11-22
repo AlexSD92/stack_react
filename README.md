@@ -240,6 +240,7 @@ The following were used from Google Fonts:
 - [Whitenoise](http://whitenoise.evans.io/en/stable/)
 - [Heroku](https://id.heroku.com/)
 - [Heroku Postgres](https://www.heroku.com/postgres)
+- [ElephantSQL](https://www.elephantsql.com/)
 - [Gunicorn](https://gunicorn.org/)
 - [React Router](https://v5.reactrouter.com/)
     - Often recommended by users of stack-exchange.
